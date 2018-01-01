@@ -91,9 +91,21 @@ def displayRukuIndex():
 
     print(json.dumps(ruku_map, indent=4))
 
+def getRoot(features):
+
+    if "ROOT" in features:
+        parts = features.split("|")
+
+        for part in parts:
+            if part.startswith("ROOT"):
+                return part.split(":")[1]
+
+    return None
+
 def populateArabicContent():
     with open(file_name, 'r') as file_pointer: 
         d = collections.OrderedDict()
+        ayah_root_sequence = collections.OrderedDict()
         line = file_pointer.readline()
         count = 0
 
@@ -127,12 +139,22 @@ def populateArabicContent():
                         "full_key": full_key
                     })
 
+                root_data = getRoot(features);
+
+                if root_data is not None:
+
+                    if ayah_index not in ayah_root_sequence:
+                        ayah_root_sequence[ayah_index] = list()
+
+                    ayah_root_sequence[ayah_index].append(root_data)
+
             line = file_pointer.readline()
 
         for key, value in d.iteritems():
             aayaah_mapping.append(key);
             aayaah.append(value);
 
+    print(json.dumps(ayah_root_sequence, indent=4))
     #print(json.dumps(d, indent=4))
 
 populateArabicContent()
