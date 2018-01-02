@@ -1,10 +1,9 @@
 {
     "1": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 0, 
-        "english_meaning": "The Opening", 
-        "num_of_aayaah": 7, 
+        "revelation_phase": "Meccan", 
+        "name": "الفاتحة", 
         "english_name": "Al-Faatiha", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 1, 
@@ -20,14 +19,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 0, 
+        "english_meaning": "The Opening", 
+        "num_of_aayaah": 7
     }, 
     "2": {
-        "num_of_ruku": 40, 
-        "ayah_offset": 7, 
-        "english_meaning": "The Cow", 
-        "num_of_aayaah": 286, 
+        "revelation_phase": "Medinan", 
+        "name": "البقرة", 
         "english_name": "Al-Baqara", 
+        "num_of_ruku": 40, 
         "ruku": [
             {
                 "ruku_index": 2, 
@@ -595,14 +596,16 @@
                 ], 
                 "ruku_number_of_surah": 40
             }
-        ]
+        ], 
+        "ayah_offset": 7, 
+        "english_meaning": "The Cow", 
+        "num_of_aayaah": 286
     }, 
     "3": {
-        "num_of_ruku": 20, 
-        "ayah_offset": 293, 
-        "english_meaning": "The Family of Imraan", 
-        "num_of_aayaah": 200, 
+        "revelation_phase": "Medinan", 
+        "name": "آل عمران", 
         "english_name": "Aal-i-Imraan", 
+        "num_of_ruku": 20, 
         "ruku": [
             {
                 "ruku_index": 42, 
@@ -944,14 +947,16 @@
                 ], 
                 "ruku_number_of_surah": 20
             }
-        ]
+        ], 
+        "ayah_offset": 293, 
+        "english_meaning": "The Family of Imraan", 
+        "num_of_aayaah": 200
     }, 
     "4": {
-        "num_of_ruku": 24, 
-        "ayah_offset": 493, 
-        "english_meaning": "The Women", 
-        "num_of_aayaah": 176, 
+        "revelation_phase": "Medinan", 
+        "name": "النساء", 
         "english_name": "An-Nisaa", 
+        "num_of_ruku": 24, 
         "ruku": [
             {
                 "ruku_index": 62, 
@@ -1297,14 +1302,16 @@
                 ], 
                 "ruku_number_of_surah": 24
             }
-        ]
+        ], 
+        "ayah_offset": 493, 
+        "english_meaning": "The Women", 
+        "num_of_aayaah": 176
     }, 
     "5": {
-        "num_of_ruku": 16, 
-        "ayah_offset": 669, 
-        "english_meaning": "The Table", 
-        "num_of_aayaah": 120, 
+        "revelation_phase": "Medinan", 
+        "name": "المائدة", 
         "english_name": "Al-Maaida", 
+        "num_of_ruku": 16, 
         "ruku": [
             {
                 "ruku_index": 86, 
@@ -1538,14 +1545,16 @@
                 ], 
                 "ruku_number_of_surah": 16
             }
-        ]
+        ], 
+        "ayah_offset": 669, 
+        "english_meaning": "The Table", 
+        "num_of_aayaah": 120
     }, 
     "6": {
-        "num_of_ruku": 20, 
-        "ayah_offset": 789, 
-        "english_meaning": "The Cattle", 
-        "num_of_aayaah": 165, 
+        "revelation_phase": "Meccan", 
+        "name": "الأنعام", 
         "english_name": "Al-An'aam", 
+        "num_of_ruku": 20, 
         "ruku": [
             {
                 "ruku_index": 102, 
@@ -1852,14 +1861,16 @@
                 ], 
                 "ruku_number_of_surah": 20
             }
-        ]
+        ], 
+        "ayah_offset": 789, 
+        "english_meaning": "The Cattle", 
+        "num_of_aayaah": 165
     }, 
     "7": {
-        "num_of_ruku": 24, 
-        "ayah_offset": 954, 
-        "english_meaning": "The Heights", 
-        "num_of_aayaah": 206, 
+        "revelation_phase": "Meccan", 
+        "name": "الأعراف", 
         "english_name": "Al-A'raaf", 
+        "num_of_ruku": 24, 
         "ruku": [
             {
                 "ruku_index": 122, 
@@ -2235,14 +2246,16 @@
                 ], 
                 "ruku_number_of_surah": 24
             }
-        ]
+        ], 
+        "ayah_offset": 954, 
+        "english_meaning": "The Heights", 
+        "num_of_aayaah": 206
     }, 
     "8": {
-        "num_of_ruku": 10, 
-        "ayah_offset": 1160, 
-        "english_meaning": "The Spoils of War", 
-        "num_of_aayaah": 75, 
+        "revelation_phase": "Medinan", 
+        "name": "الأنفال", 
         "english_name": "Al-Anfaal", 
+        "num_of_ruku": 10, 
         "ruku": [
             {
                 "ruku_index": 146, 
@@ -2389,14 +2402,16 @@
                 ], 
                 "ruku_number_of_surah": 10
             }
-        ]
+        ], 
+        "ayah_offset": 1160, 
+        "english_meaning": "The Spoils of War", 
+        "num_of_aayaah": 75
     }, 
     "9": {
-        "num_of_ruku": 16, 
-        "ayah_offset": 1235, 
-        "english_meaning": "The Repentance", 
-        "num_of_aayaah": 129, 
+        "revelation_phase": "Medinan", 
+        "name": "التوبة", 
         "english_name": "At-Tawba", 
+        "num_of_ruku": 16, 
         "ruku": [
             {
                 "ruku_index": 156, 
@@ -2639,14 +2654,16 @@
                 ], 
                 "ruku_number_of_surah": 16
             }
-        ]
+        ], 
+        "ayah_offset": 1235, 
+        "english_meaning": "The Repentance", 
+        "num_of_aayaah": 129
     }, 
     "10": {
-        "num_of_ruku": 11, 
-        "ayah_offset": 1364, 
-        "english_meaning": "Jonas", 
-        "num_of_aayaah": 109, 
+        "revelation_phase": "Meccan", 
+        "name": "يونس", 
         "english_name": "Yunus", 
+        "num_of_ruku": 11, 
         "ruku": [
             {
                 "ruku_index": 172, 
@@ -2834,14 +2851,16 @@
                 ], 
                 "ruku_number_of_surah": 11
             }
-        ]
+        ], 
+        "ayah_offset": 1364, 
+        "english_meaning": "Jonas", 
+        "num_of_aayaah": 109
     }, 
     "11": {
-        "num_of_ruku": 10, 
-        "ayah_offset": 1473, 
-        "english_meaning": "Hud", 
-        "num_of_aayaah": 123, 
+        "revelation_phase": "Meccan", 
+        "name": "هود", 
         "english_name": "Hud", 
+        "num_of_ruku": 10, 
         "ruku": [
             {
                 "ruku_index": 183, 
@@ -3036,14 +3055,16 @@
                 ], 
                 "ruku_number_of_surah": 10
             }
-        ]
+        ], 
+        "ayah_offset": 1473, 
+        "english_meaning": "Hud", 
+        "num_of_aayaah": 123
     }, 
     "12": {
-        "num_of_ruku": 12, 
-        "ayah_offset": 1596, 
-        "english_meaning": "Joseph", 
-        "num_of_aayaah": 111, 
+        "revelation_phase": "Meccan", 
+        "name": "يوسف", 
         "english_name": "Yusuf", 
+        "num_of_ruku": 12, 
         "ruku": [
             {
                 "ruku_index": 193, 
@@ -3240,14 +3261,16 @@
                 ], 
                 "ruku_number_of_surah": 12
             }
-        ]
+        ], 
+        "ayah_offset": 1596, 
+        "english_meaning": "Joseph", 
+        "num_of_aayaah": 111
     }, 
     "13": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 1707, 
-        "english_meaning": "The Thunder", 
-        "num_of_aayaah": 43, 
+        "revelation_phase": "Medinan", 
+        "name": "الرعد", 
         "english_name": "Ar-Ra'd", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 205, 
@@ -3334,14 +3357,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 1707, 
+        "english_meaning": "The Thunder", 
+        "num_of_aayaah": 43
     }, 
     "14": {
-        "num_of_ruku": 7, 
-        "ayah_offset": 1750, 
-        "english_meaning": "Abraham", 
-        "num_of_aayaah": 52, 
+        "revelation_phase": "Meccan", 
+        "name": "ابراهيم", 
         "english_name": "Ibrahim", 
+        "num_of_ruku": 7, 
         "ruku": [
             {
                 "ruku_index": 211, 
@@ -3444,14 +3469,16 @@
                 ], 
                 "ruku_number_of_surah": 7
             }
-        ]
+        ], 
+        "ayah_offset": 1750, 
+        "english_meaning": "Abraham", 
+        "num_of_aayaah": 52
     }, 
     "15": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 1802, 
-        "english_meaning": "The Rock", 
-        "num_of_aayaah": 99, 
+        "revelation_phase": "Meccan", 
+        "name": "الحجر", 
         "english_name": "Al-Hijr", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 218, 
@@ -3594,14 +3621,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 1802, 
+        "english_meaning": "The Rock", 
+        "num_of_aayaah": 99
     }, 
     "16": {
-        "num_of_ruku": 16, 
-        "ayah_offset": 1901, 
-        "english_meaning": "The Bee", 
-        "num_of_aayaah": 128, 
+        "revelation_phase": "Meccan", 
+        "name": "النحل", 
         "english_name": "An-Nahl", 
+        "num_of_ruku": 16, 
         "ruku": [
             {
                 "ruku_index": 224, 
@@ -3843,14 +3872,16 @@
                 ], 
                 "ruku_number_of_surah": 16
             }
-        ]
+        ], 
+        "ayah_offset": 1901, 
+        "english_meaning": "The Bee", 
+        "num_of_aayaah": 128
     }, 
     "17": {
-        "num_of_ruku": 12, 
-        "ayah_offset": 2029, 
-        "english_meaning": "The Night Journey", 
-        "num_of_aayaah": 111, 
+        "revelation_phase": "Meccan", 
+        "name": "الإسراء", 
         "english_name": "Al-Israa", 
+        "num_of_ruku": 12, 
         "ruku": [
             {
                 "ruku_index": 240, 
@@ -4047,14 +4078,16 @@
                 ], 
                 "ruku_number_of_surah": 12
             }
-        ]
+        ], 
+        "ayah_offset": 2029, 
+        "english_meaning": "The Night Journey", 
+        "num_of_aayaah": 111
     }, 
     "18": {
-        "num_of_ruku": 12, 
-        "ayah_offset": 2140, 
-        "english_meaning": "The Cave", 
-        "num_of_aayaah": 110, 
+        "revelation_phase": "Meccan", 
+        "name": "الكهف", 
         "english_name": "Al-Kahf", 
+        "num_of_ruku": 12, 
         "ruku": [
             {
                 "ruku_index": 252, 
@@ -4250,14 +4283,16 @@
                 ], 
                 "ruku_number_of_surah": 12
             }
-        ]
+        ], 
+        "ayah_offset": 2140, 
+        "english_meaning": "The Cave", 
+        "num_of_aayaah": 110
     }, 
     "19": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 2250, 
-        "english_meaning": "Mary", 
-        "num_of_aayaah": 98, 
+        "revelation_phase": "Meccan", 
+        "name": "مريم", 
         "english_name": "Maryam", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 264, 
@@ -4399,14 +4434,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 2250, 
+        "english_meaning": "Mary", 
+        "num_of_aayaah": 98
     }, 
     "20": {
-        "num_of_ruku": 8, 
-        "ayah_offset": 2348, 
-        "english_meaning": "Taa-Haa", 
-        "num_of_aayaah": 135, 
+        "revelation_phase": "Meccan", 
+        "name": "طه", 
         "english_name": "Taa-Haa", 
+        "num_of_ruku": 8, 
         "ruku": [
             {
                 "ruku_index": 270, 
@@ -4599,14 +4636,16 @@
                 ], 
                 "ruku_number_of_surah": 8
             }
-        ]
+        ], 
+        "ayah_offset": 2348, 
+        "english_meaning": "Taa-Haa", 
+        "num_of_aayaah": 135
     }, 
     "21": {
-        "num_of_ruku": 7, 
-        "ayah_offset": 2483, 
-        "english_meaning": "The Prophets", 
-        "num_of_aayaah": 112, 
+        "revelation_phase": "Meccan", 
+        "name": "الأنبياء", 
         "english_name": "Al-Anbiyaa", 
+        "num_of_ruku": 7, 
         "ruku": [
             {
                 "ruku_index": 278, 
@@ -4769,14 +4808,16 @@
                 ], 
                 "ruku_number_of_surah": 7
             }
-        ]
+        ], 
+        "ayah_offset": 2483, 
+        "english_meaning": "The Prophets", 
+        "num_of_aayaah": 112
     }, 
     "22": {
-        "num_of_ruku": 10, 
-        "ayah_offset": 2595, 
-        "english_meaning": "The Pilgrimage", 
-        "num_of_aayaah": 78, 
+        "revelation_phase": "Medinan", 
+        "name": "الحج", 
         "english_name": "Al-Hajj", 
+        "num_of_ruku": 10, 
         "ruku": [
             {
                 "ruku_index": 285, 
@@ -4926,14 +4967,16 @@
                 ], 
                 "ruku_number_of_surah": 10
             }
-        ]
+        ], 
+        "ayah_offset": 2595, 
+        "english_meaning": "The Pilgrimage", 
+        "num_of_aayaah": 78
     }, 
     "23": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 2673, 
-        "english_meaning": "The Believers", 
-        "num_of_aayaah": 118, 
+        "revelation_phase": "Meccan", 
+        "name": "المؤمنون", 
         "english_name": "Al-Muminoon", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 295, 
@@ -5095,14 +5138,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 2673, 
+        "english_meaning": "The Believers", 
+        "num_of_aayaah": 118
     }, 
     "24": {
-        "num_of_ruku": 9, 
-        "ayah_offset": 2791, 
-        "english_meaning": "The Light", 
-        "num_of_aayaah": 64, 
+        "revelation_phase": "Medinan", 
+        "name": "النور", 
         "english_name": "An-Noor", 
+        "num_of_ruku": 9, 
         "ruku": [
             {
                 "ruku_index": 301, 
@@ -5231,14 +5276,16 @@
                 ], 
                 "ruku_number_of_surah": 9
             }
-        ]
+        ], 
+        "ayah_offset": 2791, 
+        "english_meaning": "The Light", 
+        "num_of_aayaah": 64
     }, 
     "25": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 2855, 
-        "english_meaning": "The Criterion", 
-        "num_of_aayaah": 77, 
+        "revelation_phase": "Meccan", 
+        "name": "الفرقان", 
         "english_name": "Al-Furqaan", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 310, 
@@ -5359,14 +5406,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 2855, 
+        "english_meaning": "The Criterion", 
+        "num_of_aayaah": 77
     }, 
     "26": {
-        "num_of_ruku": 11, 
-        "ayah_offset": 2932, 
-        "english_meaning": "The Poets", 
-        "num_of_aayaah": 227, 
+        "revelation_phase": "Meccan", 
+        "name": "الشعراء", 
         "english_name": "Ash-Shu'araa", 
+        "num_of_ruku": 11, 
         "ruku": [
             {
                 "ruku_index": 316, 
@@ -5672,14 +5721,16 @@
                 ], 
                 "ruku_number_of_surah": 11
             }
-        ]
+        ], 
+        "ayah_offset": 2932, 
+        "english_meaning": "The Poets", 
+        "num_of_aayaah": 227
     }, 
     "27": {
-        "num_of_ruku": 7, 
-        "ayah_offset": 3159, 
-        "english_meaning": "The Ant", 
-        "num_of_aayaah": 93, 
+        "revelation_phase": "Meccan", 
+        "name": "النمل", 
         "english_name": "An-Naml", 
+        "num_of_ruku": 7, 
         "ruku": [
             {
                 "ruku_index": 327, 
@@ -5823,14 +5874,16 @@
                 ], 
                 "ruku_number_of_surah": 7
             }
-        ]
+        ], 
+        "ayah_offset": 3159, 
+        "english_meaning": "The Ant", 
+        "num_of_aayaah": 93
     }, 
     "28": {
-        "num_of_ruku": 8, 
-        "ayah_offset": 3252, 
-        "english_meaning": "The Stories", 
-        "num_of_aayaah": 88, 
+        "revelation_phase": "Meccan", 
+        "name": "القصص", 
         "english_name": "Al-Qasas", 
+        "num_of_ruku": 8, 
         "ruku": [
             {
                 "ruku_index": 334, 
@@ -5976,14 +6029,16 @@
                 ], 
                 "ruku_number_of_surah": 8
             }
-        ]
+        ], 
+        "ayah_offset": 3252, 
+        "english_meaning": "The Stories", 
+        "num_of_aayaah": 88
     }, 
     "29": {
-        "num_of_ruku": 7, 
-        "ayah_offset": 3340, 
-        "english_meaning": "The Spider", 
-        "num_of_aayaah": 69, 
+        "revelation_phase": "Meccan", 
+        "name": "العنكبوت", 
         "english_name": "Al-Ankaboot", 
+        "num_of_ruku": 7, 
         "ruku": [
             {
                 "ruku_index": 342, 
@@ -6103,14 +6158,16 @@
                 ], 
                 "ruku_number_of_surah": 7
             }
-        ]
+        ], 
+        "ayah_offset": 3340, 
+        "english_meaning": "The Spider", 
+        "num_of_aayaah": 69
     }, 
     "30": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 3409, 
-        "english_meaning": "The Romans", 
-        "num_of_aayaah": 60, 
+        "revelation_phase": "Meccan", 
+        "name": "الروم", 
         "english_name": "Ar-Room", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 349, 
@@ -6214,14 +6271,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 3409, 
+        "english_meaning": "The Romans", 
+        "num_of_aayaah": 60
     }, 
     "31": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 3469, 
-        "english_meaning": "Luqman", 
-        "num_of_aayaah": 34, 
+        "revelation_phase": "Meccan", 
+        "name": "لقمان", 
         "english_name": "Luqman", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 355, 
@@ -6278,14 +6337,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 3469, 
+        "english_meaning": "Luqman", 
+        "num_of_aayaah": 34
     }, 
     "32": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 3503, 
-        "english_meaning": "The Prostration", 
-        "num_of_aayaah": 30, 
+        "revelation_phase": "Meccan", 
+        "name": "السجدة", 
         "english_name": "As-Sajda", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 358, 
@@ -6338,14 +6399,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 3503, 
+        "english_meaning": "The Prostration", 
+        "num_of_aayaah": 30
     }, 
     "33": {
-        "num_of_ruku": 9, 
-        "ayah_offset": 3533, 
-        "english_meaning": "The Clans", 
-        "num_of_aayaah": 73, 
+        "revelation_phase": "Medinan", 
+        "name": "الأحزاب", 
         "english_name": "Al-Ahzaab", 
+        "num_of_ruku": 9, 
         "ruku": [
             {
                 "ruku_index": 361, 
@@ -6483,14 +6546,16 @@
                 ], 
                 "ruku_number_of_surah": 9
             }
-        ]
+        ], 
+        "ayah_offset": 3533, 
+        "english_meaning": "The Clans", 
+        "num_of_aayaah": 73
     }, 
     "34": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 3606, 
-        "english_meaning": "Sheba", 
-        "num_of_aayaah": 54, 
+        "revelation_phase": "Meccan", 
+        "name": "سبإ", 
         "english_name": "Saba", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 370, 
@@ -6588,14 +6653,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 3606, 
+        "english_meaning": "Sheba", 
+        "num_of_aayaah": 54
     }, 
     "35": {
-        "num_of_ruku": 5, 
-        "ayah_offset": 3660, 
-        "english_meaning": "The Originator", 
-        "num_of_aayaah": 45, 
+        "revelation_phase": "Meccan", 
+        "name": "فاطر", 
         "english_name": "Faatir", 
+        "num_of_ruku": 5, 
         "ruku": [
             {
                 "ruku_index": 376, 
@@ -6677,14 +6744,16 @@
                 ], 
                 "ruku_number_of_surah": 5
             }
-        ]
+        ], 
+        "ayah_offset": 3660, 
+        "english_meaning": "The Originator", 
+        "num_of_aayaah": 45
     }, 
     "36": {
-        "num_of_ruku": 5, 
-        "ayah_offset": 3705, 
-        "english_meaning": "Yaseen", 
-        "num_of_aayaah": 83, 
+        "revelation_phase": "Meccan", 
+        "name": "يس", 
         "english_name": "Yaseen", 
+        "num_of_ruku": 5, 
         "ruku": [
             {
                 "ruku_index": 381, 
@@ -6804,14 +6873,16 @@
                 ], 
                 "ruku_number_of_surah": 5
             }
-        ]
+        ], 
+        "ayah_offset": 3705, 
+        "english_meaning": "Yaseen", 
+        "num_of_aayaah": 83
     }, 
     "37": {
-        "num_of_ruku": 5, 
-        "ayah_offset": 3788, 
-        "english_meaning": "Those drawn up in Ranks", 
-        "num_of_aayaah": 182, 
+        "revelation_phase": "Meccan", 
+        "name": "الصافات", 
         "english_name": "As-Saaffaat", 
+        "num_of_ruku": 5, 
         "ruku": [
             {
                 "ruku_index": 386, 
@@ -7030,14 +7101,16 @@
                 ], 
                 "ruku_number_of_surah": 5
             }
-        ]
+        ], 
+        "ayah_offset": 3788, 
+        "english_meaning": "Those drawn up in Ranks", 
+        "num_of_aayaah": 182
     }, 
     "38": {
-        "num_of_ruku": 5, 
-        "ayah_offset": 3970, 
-        "english_meaning": "The letter Saad", 
-        "num_of_aayaah": 88, 
+        "revelation_phase": "Meccan", 
+        "name": "ص", 
         "english_name": "Saad", 
+        "num_of_ruku": 5, 
         "ruku": [
             {
                 "ruku_index": 391, 
@@ -7162,14 +7235,16 @@
                 ], 
                 "ruku_number_of_surah": 5
             }
-        ]
+        ], 
+        "ayah_offset": 3970, 
+        "english_meaning": "The letter Saad", 
+        "num_of_aayaah": 88
     }, 
     "39": {
-        "num_of_ruku": 8, 
-        "ayah_offset": 4058, 
-        "english_meaning": "The Groups", 
-        "num_of_aayaah": 75, 
+        "revelation_phase": "Meccan", 
+        "name": "الزمر", 
         "english_name": "Az-Zumar", 
+        "num_of_ruku": 8, 
         "ruku": [
             {
                 "ruku_index": 396, 
@@ -7302,14 +7377,16 @@
                 ], 
                 "ruku_number_of_surah": 8
             }
-        ]
+        ], 
+        "ayah_offset": 4058, 
+        "english_meaning": "The Groups", 
+        "num_of_aayaah": 75
     }, 
     "40": {
-        "num_of_ruku": 9, 
-        "ayah_offset": 4133, 
-        "english_meaning": "The Forgiver", 
-        "num_of_aayaah": 85, 
+        "revelation_phase": "Meccan", 
+        "name": "غافر", 
         "english_name": "Al-Ghaafir", 
+        "num_of_ruku": 9, 
         "ruku": [
             {
                 "ruku_index": 404, 
@@ -7459,14 +7536,16 @@
                 ], 
                 "ruku_number_of_surah": 9
             }
-        ]
+        ], 
+        "ayah_offset": 4133, 
+        "english_meaning": "The Forgiver", 
+        "num_of_aayaah": 85
     }, 
     "41": {
-        "num_of_ruku": 6, 
-        "ayah_offset": 4218, 
-        "english_meaning": "Explained in detail", 
-        "num_of_aayaah": 54, 
+        "revelation_phase": "Meccan", 
+        "name": "فصلت", 
         "english_name": "Fussilat", 
+        "num_of_ruku": 6, 
         "ruku": [
             {
                 "ruku_index": 413, 
@@ -7564,14 +7643,16 @@
                 ], 
                 "ruku_number_of_surah": 6
             }
-        ]
+        ], 
+        "ayah_offset": 4218, 
+        "english_meaning": "Explained in detail", 
+        "num_of_aayaah": 54
     }, 
     "42": {
-        "num_of_ruku": 5, 
-        "ayah_offset": 4272, 
-        "english_meaning": "Consultation", 
-        "num_of_aayaah": 53, 
+        "revelation_phase": "Meccan", 
+        "name": "الشورى", 
         "english_name": "Ash-Shura", 
+        "num_of_ruku": 5, 
         "ruku": [
             {
                 "ruku_index": 419, 
@@ -7661,14 +7742,16 @@
                 ], 
                 "ruku_number_of_surah": 5
             }
-        ]
+        ], 
+        "ayah_offset": 4272, 
+        "english_meaning": "Consultation", 
+        "num_of_aayaah": 53
     }, 
     "43": {
-        "num_of_ruku": 7, 
-        "ayah_offset": 4325, 
-        "english_meaning": "Ornaments of gold", 
-        "num_of_aayaah": 89, 
+        "revelation_phase": "Meccan", 
+        "name": "الزخرف", 
         "english_name": "Az-Zukhruf", 
+        "num_of_ruku": 7, 
         "ruku": [
             {
                 "ruku_index": 424, 
@@ -7808,14 +7891,16 @@
                 ], 
                 "ruku_number_of_surah": 7
             }
-        ]
+        ], 
+        "ayah_offset": 4325, 
+        "english_meaning": "Ornaments of gold", 
+        "num_of_aayaah": 89
     }, 
     "44": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4414, 
-        "english_meaning": "The Smoke", 
-        "num_of_aayaah": 59, 
+        "revelation_phase": "Meccan", 
+        "name": "الدخان", 
         "english_name": "Ad-Dukhaan", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 431, 
@@ -7897,14 +7982,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4414, 
+        "english_meaning": "The Smoke", 
+        "num_of_aayaah": 59
     }, 
     "45": {
-        "num_of_ruku": 4, 
-        "ayah_offset": 4473, 
-        "english_meaning": "Crouching", 
-        "num_of_aayaah": 37, 
+        "revelation_phase": "Meccan", 
+        "name": "الجاثية", 
         "english_name": "Al-Jaathiya", 
+        "num_of_ruku": 4, 
         "ruku": [
             {
                 "ruku_index": 434, 
@@ -7971,14 +8058,16 @@
                 ], 
                 "ruku_number_of_surah": 4
             }
-        ]
+        ], 
+        "ayah_offset": 4473, 
+        "english_meaning": "Crouching", 
+        "num_of_aayaah": 37
     }, 
     "46": {
-        "num_of_ruku": 4, 
-        "ayah_offset": 4510, 
-        "english_meaning": "The Dunes", 
-        "num_of_aayaah": 35, 
+        "revelation_phase": "Meccan", 
+        "name": "الأحقاف", 
         "english_name": "Al-Ahqaf", 
+        "num_of_ruku": 4, 
         "ruku": [
             {
                 "ruku_index": 438, 
@@ -8043,14 +8132,16 @@
                 ], 
                 "ruku_number_of_surah": 4
             }
-        ]
+        ], 
+        "ayah_offset": 4510, 
+        "english_meaning": "The Dunes", 
+        "num_of_aayaah": 35
     }, 
     "47": {
-        "num_of_ruku": 4, 
-        "ayah_offset": 4545, 
-        "english_meaning": "Muhammad", 
-        "num_of_aayaah": 38, 
+        "revelation_phase": "Medinan", 
+        "name": "محمد", 
         "english_name": "Muhammad", 
+        "num_of_ruku": 4, 
         "ruku": [
             {
                 "ruku_index": 442, 
@@ -8118,14 +8209,16 @@
                 ], 
                 "ruku_number_of_surah": 4
             }
-        ]
+        ], 
+        "ayah_offset": 4545, 
+        "english_meaning": "Muhammad", 
+        "num_of_aayaah": 38
     }, 
     "48": {
-        "num_of_ruku": 4, 
-        "ayah_offset": 4583, 
-        "english_meaning": "The Victory", 
-        "num_of_aayaah": 29, 
+        "revelation_phase": "Medinan", 
+        "name": "الفتح", 
         "english_name": "Al-Fath", 
+        "num_of_ruku": 4, 
         "ruku": [
             {
                 "ruku_index": 446, 
@@ -8184,14 +8277,16 @@
                 ], 
                 "ruku_number_of_surah": 4
             }
-        ]
+        ], 
+        "ayah_offset": 4583, 
+        "english_meaning": "The Victory", 
+        "num_of_aayaah": 29
     }, 
     "49": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 4612, 
-        "english_meaning": "The Inner Apartments", 
-        "num_of_aayaah": 18, 
+        "revelation_phase": "Medinan", 
+        "name": "الحجرات", 
         "english_name": "Al-Hujuraat", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 450, 
@@ -8225,14 +8320,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 4612, 
+        "english_meaning": "The Inner Apartments", 
+        "num_of_aayaah": 18
     }, 
     "50": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4630, 
-        "english_meaning": "The letter Qaaf", 
-        "num_of_aayaah": 45, 
+        "revelation_phase": "Meccan", 
+        "name": "ق", 
         "english_name": "Qaaf", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 452, 
@@ -8300,14 +8397,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4630, 
+        "english_meaning": "The letter Qaaf", 
+        "num_of_aayaah": 45
     }, 
     "51": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4675, 
-        "english_meaning": "The Winnowing Winds", 
-        "num_of_aayaah": 60, 
+        "revelation_phase": "Meccan", 
+        "name": "الذاريات", 
         "english_name": "Adh-Dhaariyat", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 455, 
@@ -8390,14 +8489,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4675, 
+        "english_meaning": "The Winnowing Winds", 
+        "num_of_aayaah": 60
     }, 
     "52": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 4735, 
-        "english_meaning": "The Mount", 
-        "num_of_aayaah": 49, 
+        "revelation_phase": "Meccan", 
+        "name": "الطور", 
         "english_name": "At-Tur", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 458, 
@@ -8462,14 +8563,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 4735, 
+        "english_meaning": "The Mount", 
+        "num_of_aayaah": 49
     }, 
     "53": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4784, 
-        "english_meaning": "The Star", 
-        "num_of_aayaah": 62, 
+        "revelation_phase": "Meccan", 
+        "name": "النجم", 
         "english_name": "An-Najm", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 460, 
@@ -8554,14 +8657,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4784, 
+        "english_meaning": "The Star", 
+        "num_of_aayaah": 62
     }, 
     "54": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4846, 
-        "english_meaning": "The Moon", 
-        "num_of_aayaah": 55, 
+        "revelation_phase": "Meccan", 
+        "name": "القمر", 
         "english_name": "Al-Qamar", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 463, 
@@ -8639,14 +8744,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4846, 
+        "english_meaning": "The Moon", 
+        "num_of_aayaah": 55
     }, 
     "55": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4901, 
-        "english_meaning": "The Beneficent", 
-        "num_of_aayaah": 78, 
+        "revelation_phase": "Medinan", 
+        "name": "الرحمن", 
         "english_name": "Ar-Rahmaan", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 466, 
@@ -8747,14 +8854,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4901, 
+        "english_meaning": "The Beneficent", 
+        "num_of_aayaah": 78
     }, 
     "56": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 4979, 
-        "english_meaning": "The Inevitable", 
-        "num_of_aayaah": 96, 
+        "revelation_phase": "Meccan", 
+        "name": "الواقعة", 
         "english_name": "Al-Waaqia", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 469, 
@@ -8873,14 +8982,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 4979, 
+        "english_meaning": "The Inevitable", 
+        "num_of_aayaah": 96
     }, 
     "57": {
-        "num_of_ruku": 4, 
-        "ayah_offset": 5075, 
-        "english_meaning": "The Iron", 
-        "num_of_aayaah": 29, 
+        "revelation_phase": "Medinan", 
+        "name": "الحديد", 
         "english_name": "Al-Hadid", 
+        "num_of_ruku": 4, 
         "ruku": [
             {
                 "ruku_index": 472, 
@@ -8939,14 +9050,16 @@
                 ], 
                 "ruku_number_of_surah": 4
             }
-        ]
+        ], 
+        "ayah_offset": 5075, 
+        "english_meaning": "The Iron", 
+        "num_of_aayaah": 29
     }, 
     "58": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 5104, 
-        "english_meaning": "The Pleading Woman", 
-        "num_of_aayaah": 22, 
+        "revelation_phase": "Medinan", 
+        "name": "المجادلة", 
         "english_name": "Al-Mujaadila", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 476, 
@@ -8991,14 +9104,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 5104, 
+        "english_meaning": "The Pleading Woman", 
+        "num_of_aayaah": 22
     }, 
     "59": {
-        "num_of_ruku": 3, 
-        "ayah_offset": 5126, 
-        "english_meaning": "The Exile", 
-        "num_of_aayaah": 24, 
+        "revelation_phase": "Medinan", 
+        "name": "الحشر", 
         "english_name": "Al-Hashr", 
+        "num_of_ruku": 3, 
         "ruku": [
             {
                 "ruku_index": 479, 
@@ -9045,14 +9160,16 @@
                 ], 
                 "ruku_number_of_surah": 3
             }
-        ]
+        ], 
+        "ayah_offset": 5126, 
+        "english_meaning": "The Exile", 
+        "num_of_aayaah": 24
     }, 
     "60": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5150, 
-        "english_meaning": "She that is to be examined", 
-        "num_of_aayaah": 13, 
+        "revelation_phase": "Medinan", 
+        "name": "الممتحنة", 
         "english_name": "Al-Mumtahana", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 482, 
@@ -9081,14 +9198,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5150, 
+        "english_meaning": "She that is to be examined", 
+        "num_of_aayaah": 13
     }, 
     "61": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5163, 
-        "english_meaning": "The Ranks", 
-        "num_of_aayaah": 14, 
+        "revelation_phase": "Medinan", 
+        "name": "الصف", 
         "english_name": "As-Saff", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 484, 
@@ -9118,14 +9237,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5163, 
+        "english_meaning": "The Ranks", 
+        "num_of_aayaah": 14
     }, 
     "62": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5177, 
-        "english_meaning": "Friday", 
-        "num_of_aayaah": 11, 
+        "revelation_phase": "Medinan", 
+        "name": "الجمعة", 
         "english_name": "Al-Jumu'a", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 486, 
@@ -9152,14 +9273,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5177, 
+        "english_meaning": "Friday", 
+        "num_of_aayaah": 11
     }, 
     "63": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5188, 
-        "english_meaning": "The Hypocrites", 
-        "num_of_aayaah": 11, 
+        "revelation_phase": "Medinan", 
+        "name": "المنافقون", 
         "english_name": "Al-Munaafiqoon", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 488, 
@@ -9186,14 +9309,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5188, 
+        "english_meaning": "The Hypocrites", 
+        "num_of_aayaah": 11
     }, 
     "64": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5199, 
-        "english_meaning": "Mutual Disillusion", 
-        "num_of_aayaah": 18, 
+        "revelation_phase": "Medinan", 
+        "name": "التغابن", 
         "english_name": "At-Taghaabun", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 490, 
@@ -9227,14 +9352,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5199, 
+        "english_meaning": "Mutual Disillusion", 
+        "num_of_aayaah": 18
     }, 
     "65": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5217, 
-        "english_meaning": "Divorce", 
-        "num_of_aayaah": 12, 
+        "revelation_phase": "Medinan", 
+        "name": "الطلاق", 
         "english_name": "At-Talaaq", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 492, 
@@ -9262,14 +9389,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5217, 
+        "english_meaning": "Divorce", 
+        "num_of_aayaah": 12
     }, 
     "66": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5229, 
-        "english_meaning": "The Prohibition", 
-        "num_of_aayaah": 12, 
+        "revelation_phase": "Medinan", 
+        "name": "التحريم", 
         "english_name": "At-Tahrim", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 494, 
@@ -9297,14 +9426,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5229, 
+        "english_meaning": "The Prohibition", 
+        "num_of_aayaah": 12
     }, 
     "67": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5241, 
-        "english_meaning": "The Sovereignty", 
-        "num_of_aayaah": 30, 
+        "revelation_phase": "Meccan", 
+        "name": "الملك", 
         "english_name": "Al-Mulk", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 496, 
@@ -9350,14 +9481,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5241, 
+        "english_meaning": "The Sovereignty", 
+        "num_of_aayaah": 30
     }, 
     "68": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5271, 
-        "english_meaning": "The Pen", 
-        "num_of_aayaah": 52, 
+        "revelation_phase": "Meccan", 
+        "name": "القلم", 
         "english_name": "Al-Qalam", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 498, 
@@ -9425,14 +9558,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5271, 
+        "english_meaning": "The Pen", 
+        "num_of_aayaah": 52
     }, 
     "69": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5323, 
-        "english_meaning": "The Reality", 
-        "num_of_aayaah": 52, 
+        "revelation_phase": "Meccan", 
+        "name": "الحاقة", 
         "english_name": "Al-Haaqqa", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 500, 
@@ -9500,14 +9635,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5323, 
+        "english_meaning": "The Reality", 
+        "num_of_aayaah": 52
     }, 
     "70": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5375, 
-        "english_meaning": "The Ascending Stairways", 
-        "num_of_aayaah": 44, 
+        "revelation_phase": "Meccan", 
+        "name": "المعارج", 
         "english_name": "Al-Ma'aarij", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 502, 
@@ -9567,14 +9704,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5375, 
+        "english_meaning": "The Ascending Stairways", 
+        "num_of_aayaah": 44
     }, 
     "71": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5419, 
-        "english_meaning": "Noah", 
-        "num_of_aayaah": 28, 
+        "revelation_phase": "Meccan", 
+        "name": "نوح", 
         "english_name": "Nooh", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 504, 
@@ -9618,14 +9757,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5419, 
+        "english_meaning": "Noah", 
+        "num_of_aayaah": 28
     }, 
     "72": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5447, 
-        "english_meaning": "The Jinn", 
-        "num_of_aayaah": 28, 
+        "revelation_phase": "Meccan", 
+        "name": "الجن", 
         "english_name": "Al-Jinn", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 506, 
@@ -9669,14 +9810,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5447, 
+        "english_meaning": "The Jinn", 
+        "num_of_aayaah": 28
     }, 
     "73": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5475, 
-        "english_meaning": "The Enshrouded One", 
-        "num_of_aayaah": 20, 
+        "revelation_phase": "Meccan", 
+        "name": "المزمل", 
         "english_name": "Al-Muzzammil", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 508, 
@@ -9712,14 +9855,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5475, 
+        "english_meaning": "The Enshrouded One", 
+        "num_of_aayaah": 20
     }, 
     "74": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5495, 
-        "english_meaning": "The Cloaked One", 
-        "num_of_aayaah": 56, 
+        "revelation_phase": "Meccan", 
+        "name": "المدثر", 
         "english_name": "Al-Muddaththir", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 510, 
@@ -9791,14 +9936,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5495, 
+        "english_meaning": "The Cloaked One", 
+        "num_of_aayaah": 56
     }, 
     "75": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5551, 
-        "english_meaning": "The Resurrection", 
-        "num_of_aayaah": 40, 
+        "revelation_phase": "Meccan", 
+        "name": "القيامة", 
         "english_name": "Al-Qiyaama", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 512, 
@@ -9854,14 +10001,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5551, 
+        "english_meaning": "The Resurrection", 
+        "num_of_aayaah": 40
     }, 
     "76": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5591, 
-        "english_meaning": "Man", 
-        "num_of_aayaah": 31, 
+        "revelation_phase": "Medinan", 
+        "name": "الانسان", 
         "english_name": "Al-Insaan", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 514, 
@@ -9908,14 +10057,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5591, 
+        "english_meaning": "Man", 
+        "num_of_aayaah": 31
     }, 
     "77": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5622, 
-        "english_meaning": "The Emissaries", 
-        "num_of_aayaah": 50, 
+        "revelation_phase": "Meccan", 
+        "name": "المرسلات", 
         "english_name": "Al-Mursalaat", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 516, 
@@ -9981,14 +10132,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5622, 
+        "english_meaning": "The Emissaries", 
+        "num_of_aayaah": 50
     }, 
     "78": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5672, 
-        "english_meaning": "The Announcement", 
-        "num_of_aayaah": 40, 
+        "revelation_phase": "Meccan", 
+        "name": "النبإ", 
         "english_name": "An-Naba", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 518, 
@@ -10044,14 +10197,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5672, 
+        "english_meaning": "The Announcement", 
+        "num_of_aayaah": 40
     }, 
     "79": {
-        "num_of_ruku": 2, 
-        "ayah_offset": 5712, 
-        "english_meaning": "Those who drag forth", 
-        "num_of_aayaah": 46, 
+        "revelation_phase": "Meccan", 
+        "name": "النازعات", 
         "english_name": "An-Naazi'aat", 
+        "num_of_ruku": 2, 
         "ruku": [
             {
                 "ruku_index": 520, 
@@ -10113,14 +10268,16 @@
                 ], 
                 "ruku_number_of_surah": 2
             }
-        ]
+        ], 
+        "ayah_offset": 5712, 
+        "english_meaning": "Those who drag forth", 
+        "num_of_aayaah": 46
     }, 
     "80": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5758, 
-        "english_meaning": "He frowned", 
-        "num_of_aayaah": 42, 
+        "revelation_phase": "Meccan", 
+        "name": "عبس", 
         "english_name": "Abasa", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 522, 
@@ -10171,14 +10328,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5758, 
+        "english_meaning": "He frowned", 
+        "num_of_aayaah": 42
     }, 
     "81": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5800, 
-        "english_meaning": "The Overthrowing", 
-        "num_of_aayaah": 29, 
+        "revelation_phase": "Meccan", 
+        "name": "التكوير", 
         "english_name": "At-Takwir", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 523, 
@@ -10216,14 +10375,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5800, 
+        "english_meaning": "The Overthrowing", 
+        "num_of_aayaah": 29
     }, 
     "82": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5829, 
-        "english_meaning": "The Cleaving", 
-        "num_of_aayaah": 19, 
+        "revelation_phase": "Meccan", 
+        "name": "الإنفطار", 
         "english_name": "Al-Infitaar", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 524, 
@@ -10251,14 +10412,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5829, 
+        "english_meaning": "The Cleaving", 
+        "num_of_aayaah": 19
     }, 
     "83": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5848, 
-        "english_meaning": "Defrauding", 
-        "num_of_aayaah": 36, 
+        "revelation_phase": "Meccan", 
+        "name": "المطففين", 
         "english_name": "Al-Mutaffifin", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 525, 
@@ -10303,14 +10466,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5848, 
+        "english_meaning": "Defrauding", 
+        "num_of_aayaah": 36
     }, 
     "84": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5884, 
-        "english_meaning": "The Splitting Open", 
-        "num_of_aayaah": 25, 
+        "revelation_phase": "Meccan", 
+        "name": "الإنشقاق", 
         "english_name": "Al-Inshiqaaq", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 526, 
@@ -10344,14 +10509,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5884, 
+        "english_meaning": "The Splitting Open", 
+        "num_of_aayaah": 25
     }, 
     "85": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5909, 
-        "english_meaning": "The Constellations", 
-        "num_of_aayaah": 22, 
+        "revelation_phase": "Meccan", 
+        "name": "البروج", 
         "english_name": "Al-Burooj", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 527, 
@@ -10382,14 +10549,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5909, 
+        "english_meaning": "The Constellations", 
+        "num_of_aayaah": 22
     }, 
     "86": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5931, 
-        "english_meaning": "The Morning Star", 
-        "num_of_aayaah": 17, 
+        "revelation_phase": "Meccan", 
+        "name": "الطارق", 
         "english_name": "At-Taariq", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 528, 
@@ -10415,14 +10584,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5931, 
+        "english_meaning": "The Morning Star", 
+        "num_of_aayaah": 17
     }, 
     "87": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5948, 
-        "english_meaning": "The Most High", 
-        "num_of_aayaah": 19, 
+        "revelation_phase": "Meccan", 
+        "name": "الأعلى", 
         "english_name": "Al-A'laa", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 529, 
@@ -10450,14 +10621,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5948, 
+        "english_meaning": "The Most High", 
+        "num_of_aayaah": 19
     }, 
     "88": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5967, 
-        "english_meaning": "The Overwhelming", 
-        "num_of_aayaah": 26, 
+        "revelation_phase": "Meccan", 
+        "name": "الغاشية", 
         "english_name": "Al-Ghaashiya", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 530, 
@@ -10492,14 +10665,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5967, 
+        "english_meaning": "The Overwhelming", 
+        "num_of_aayaah": 26
     }, 
     "89": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 5993, 
-        "english_meaning": "The Dawn", 
-        "num_of_aayaah": 30, 
+        "revelation_phase": "Meccan", 
+        "name": "الفجر", 
         "english_name": "Al-Fajr", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 531, 
@@ -10538,14 +10713,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 5993, 
+        "english_meaning": "The Dawn", 
+        "num_of_aayaah": 30
     }, 
     "90": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6023, 
-        "english_meaning": "The City", 
-        "num_of_aayaah": 20, 
+        "revelation_phase": "Meccan", 
+        "name": "البلد", 
         "english_name": "Al-Balad", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 532, 
@@ -10574,14 +10751,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6023, 
+        "english_meaning": "The City", 
+        "num_of_aayaah": 20
     }, 
     "91": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6043, 
-        "english_meaning": "The Sun", 
-        "num_of_aayaah": 15, 
+        "revelation_phase": "Meccan", 
+        "name": "الشمس", 
         "english_name": "Ash-Shams", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 533, 
@@ -10605,14 +10784,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6043, 
+        "english_meaning": "The Sun", 
+        "num_of_aayaah": 15
     }, 
     "92": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6058, 
-        "english_meaning": "The Night", 
-        "num_of_aayaah": 21, 
+        "revelation_phase": "Meccan", 
+        "name": "الليل", 
         "english_name": "Al-Lail", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 534, 
@@ -10642,14 +10823,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6058, 
+        "english_meaning": "The Night", 
+        "num_of_aayaah": 21
     }, 
     "93": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6079, 
-        "english_meaning": "The Morning Hours", 
-        "num_of_aayaah": 11, 
+        "revelation_phase": "Meccan", 
+        "name": "الضحى", 
         "english_name": "Ad-Dhuhaa", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 535, 
@@ -10669,14 +10852,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6079, 
+        "english_meaning": "The Morning Hours", 
+        "num_of_aayaah": 11
     }, 
     "94": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6090, 
-        "english_meaning": "The Consolation", 
-        "num_of_aayaah": 8, 
+        "revelation_phase": "Meccan", 
+        "name": "الشرح", 
         "english_name": "Ash-Sharh", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 536, 
@@ -10693,14 +10878,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6090, 
+        "english_meaning": "The Consolation", 
+        "num_of_aayaah": 8
     }, 
     "95": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6098, 
-        "english_meaning": "The Fig", 
-        "num_of_aayaah": 8, 
+        "revelation_phase": "Meccan", 
+        "name": "التين", 
         "english_name": "At-Tin", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 537, 
@@ -10717,14 +10904,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6098, 
+        "english_meaning": "The Fig", 
+        "num_of_aayaah": 8
     }, 
     "96": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6106, 
-        "english_meaning": "The Clot", 
-        "num_of_aayaah": 19, 
+        "revelation_phase": "Meccan", 
+        "name": "العلق", 
         "english_name": "Al-Alaq", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 538, 
@@ -10752,14 +10941,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6106, 
+        "english_meaning": "The Clot", 
+        "num_of_aayaah": 19
     }, 
     "97": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6125, 
-        "english_meaning": "The Power, Fate", 
-        "num_of_aayaah": 5, 
+        "revelation_phase": "Meccan", 
+        "name": "القدر", 
         "english_name": "Al-Qadr", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 539, 
@@ -10773,14 +10964,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6125, 
+        "english_meaning": "The Power, Fate", 
+        "num_of_aayaah": 5
     }, 
     "98": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6130, 
-        "english_meaning": "The Evidence", 
-        "num_of_aayaah": 8, 
+        "revelation_phase": "Medinan", 
+        "name": "البينة", 
         "english_name": "Al-Bayyina", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 540, 
@@ -10797,14 +10990,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6130, 
+        "english_meaning": "The Evidence", 
+        "num_of_aayaah": 8
     }, 
     "99": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6138, 
-        "english_meaning": "The Earthquake", 
-        "num_of_aayaah": 8, 
+        "revelation_phase": "Medinan", 
+        "name": "الزلزلة", 
         "english_name": "Az-Zalzala", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 541, 
@@ -10821,14 +11016,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6138, 
+        "english_meaning": "The Earthquake", 
+        "num_of_aayaah": 8
     }, 
     "100": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6146, 
-        "english_meaning": "The Chargers", 
-        "num_of_aayaah": 11, 
+        "revelation_phase": "Meccan", 
+        "name": "العاديات", 
         "english_name": "Al-Aadiyaat", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 542, 
@@ -10848,14 +11045,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6146, 
+        "english_meaning": "The Chargers", 
+        "num_of_aayaah": 11
     }, 
     "101": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6157, 
-        "english_meaning": "The Calamity", 
-        "num_of_aayaah": 11, 
+        "revelation_phase": "Meccan", 
+        "name": "القارعة", 
         "english_name": "Al-Qaari'a", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 543, 
@@ -10875,14 +11074,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6157, 
+        "english_meaning": "The Calamity", 
+        "num_of_aayaah": 11
     }, 
     "102": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6168, 
-        "english_meaning": "Competition", 
-        "num_of_aayaah": 8, 
+        "revelation_phase": "Meccan", 
+        "name": "التكاثر", 
         "english_name": "At-Takaathur", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 544, 
@@ -10899,14 +11100,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6168, 
+        "english_meaning": "Competition", 
+        "num_of_aayaah": 8
     }, 
     "103": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6176, 
-        "english_meaning": "The Declining Day, Epoch", 
-        "num_of_aayaah": 3, 
+        "revelation_phase": "Meccan", 
+        "name": "العصر", 
         "english_name": "Al-Asr", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 545, 
@@ -10918,14 +11121,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6176, 
+        "english_meaning": "The Declining Day, Epoch", 
+        "num_of_aayaah": 3
     }, 
     "104": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6179, 
-        "english_meaning": "The Traducer", 
-        "num_of_aayaah": 9, 
+        "revelation_phase": "Meccan", 
+        "name": "الهمزة", 
         "english_name": "Al-Humaza", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 546, 
@@ -10943,14 +11148,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6179, 
+        "english_meaning": "The Traducer", 
+        "num_of_aayaah": 9
     }, 
     "105": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6188, 
-        "english_meaning": "The Elephant", 
-        "num_of_aayaah": 5, 
+        "revelation_phase": "Meccan", 
+        "name": "الفيل", 
         "english_name": "Al-Fil", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 547, 
@@ -10964,14 +11171,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6188, 
+        "english_meaning": "The Elephant", 
+        "num_of_aayaah": 5
     }, 
     "106": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6193, 
-        "english_meaning": "Quraysh", 
-        "num_of_aayaah": 4, 
+        "revelation_phase": "Meccan", 
+        "name": "قريش", 
         "english_name": "Quraish", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 548, 
@@ -10984,14 +11193,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6193, 
+        "english_meaning": "Quraysh", 
+        "num_of_aayaah": 4
     }, 
     "107": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6197, 
-        "english_meaning": "Almsgiving", 
-        "num_of_aayaah": 7, 
+        "revelation_phase": "Meccan", 
+        "name": "الماعون", 
         "english_name": "Al-Maa'un", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 549, 
@@ -11007,14 +11218,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6197, 
+        "english_meaning": "Almsgiving", 
+        "num_of_aayaah": 7
     }, 
     "108": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6204, 
-        "english_meaning": "Abundance", 
-        "num_of_aayaah": 3, 
+        "revelation_phase": "Meccan", 
+        "name": "الكوثر", 
         "english_name": "Al-Kawthar", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 550, 
@@ -11026,14 +11239,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6204, 
+        "english_meaning": "Abundance", 
+        "num_of_aayaah": 3
     }, 
     "109": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6207, 
-        "english_meaning": "The Disbelievers", 
-        "num_of_aayaah": 6, 
+        "revelation_phase": "Meccan", 
+        "name": "الكافرون", 
         "english_name": "Al-Kaafiroon", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 551, 
@@ -11048,14 +11263,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6207, 
+        "english_meaning": "The Disbelievers", 
+        "num_of_aayaah": 6
     }, 
     "110": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6213, 
-        "english_meaning": "Divine Support", 
-        "num_of_aayaah": 3, 
+        "revelation_phase": "Medinan", 
+        "name": "النصر", 
         "english_name": "An-Nasr", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 552, 
@@ -11067,14 +11284,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6213, 
+        "english_meaning": "Divine Support", 
+        "num_of_aayaah": 3
     }, 
     "111": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6216, 
-        "english_meaning": "The Palm Fibre", 
-        "num_of_aayaah": 5, 
+        "revelation_phase": "Meccan", 
+        "name": "المسد", 
         "english_name": "Al-Masad", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 553, 
@@ -11088,14 +11307,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6216, 
+        "english_meaning": "The Palm Fibre", 
+        "num_of_aayaah": 5
     }, 
     "112": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6221, 
-        "english_meaning": "Sincerity", 
-        "num_of_aayaah": 4, 
+        "revelation_phase": "Meccan", 
+        "name": "الإخلاص", 
         "english_name": "Al-Ikhlaas", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 554, 
@@ -11108,14 +11329,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6221, 
+        "english_meaning": "Sincerity", 
+        "num_of_aayaah": 4
     }, 
     "113": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6225, 
-        "english_meaning": "The Dawn", 
-        "num_of_aayaah": 5, 
+        "revelation_phase": "Meccan", 
+        "name": "الفلق", 
         "english_name": "Al-Falaq", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 555, 
@@ -11129,14 +11352,16 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6225, 
+        "english_meaning": "The Dawn", 
+        "num_of_aayaah": 5
     }, 
     "114": {
-        "num_of_ruku": 1, 
-        "ayah_offset": 6230, 
-        "english_meaning": "Mankind", 
-        "num_of_aayaah": 6, 
+        "revelation_phase": "Meccan", 
+        "name": "الناس", 
         "english_name": "An-Naas", 
+        "num_of_ruku": 1, 
         "ruku": [
             {
                 "ruku_index": 556, 
@@ -11151,6 +11376,9 @@
                 ], 
                 "ruku_number_of_surah": 1
             }
-        ]
+        ], 
+        "ayah_offset": 6230, 
+        "english_meaning": "Mankind", 
+        "num_of_aayaah": 6
     }
 }
