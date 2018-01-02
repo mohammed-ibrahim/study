@@ -110,6 +110,7 @@ def populateArabicContent():
     with open(file_name, 'r') as file_pointer: 
         d = collections.OrderedDict()
         ayah_root_sequence = collections.OrderedDict()
+        root_statistics = collections.OrderedDict()
         line = file_pointer.readline()
         count = 0
 
@@ -143,22 +144,37 @@ def populateArabicContent():
                         "full_key": full_key
                     })
 
-                root_data = getRoot(features);
+                bw_root_text = getRoot(features);
 
-                if root_data is not None:
+                # Check if root information is available.
+                if bw_root_text is not None:
 
                     if ayah_index not in ayah_root_sequence:
                         ayah_root_sequence[ayah_index] = list()
 
-                    ayah_root_sequence[ayah_index].append(root_data)
+                    ayah_root_sequence[ayah_index].append(bw_root_text)
+
+                    if bw_root_text not in root_statistics:
+                        root_statistics[bw_root_text] = {
+                            'cardinality': 0,
+                            'appears_in_surah_number': set()
+                        }
+
+                    root_statistics[bw_root_text]['cardinality'] = root_statistics[bw_root_text]['cardinality'] + 1
+                    root_statistics[bw_root_text]['appears_in_surah_number'].add(surah_number)
 
             line = file_pointer.readline()
+
+        for bw_root_text in root_statistics:
+            root_statistics[bw_root_text]['appears_in_surah_number'] = list(root_statistics[bw_root_text]['appears_in_surah_number'])
+            root_statistics[bw_root_text]['appears_number_of_surah'] = len(root_statistics[bw_root_text]['appears_in_surah_number'])
 
         for key, value in d.iteritems():
             aayaah_mapping.append(key);
             aayaah.append(value);
 
     print(json.dumps(ayah_root_sequence, indent=4))
+    print(json.dumps(root_statistics, indent=4))
     #print(json.dumps(d, indent=4))
 
 populateArabicContent()
