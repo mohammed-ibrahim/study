@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from src.reader import load_from_file
+from src.content_manager import get_data
 
 arabic = load_from_file("static/arabic/quran-uthmani.txt")
 yusuf_ali_translation = load_from_file("static/translations/en.yusufali.txt")
@@ -11,9 +12,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    #return load_from_file();
-    #return maulana_maududi_translation["1:1"]
     return "Hello"
+
+@app.route('/api/ruku/<int:ruku_number>')
+def get_ruku_data(ruku_number):
+    get_data()
+    obj =  {
+        "ruku_number": ruku_number
+    }
+
+    return jsonify(obj)
 
 if __name__ == '__main__':
    app.run(debug = True)
