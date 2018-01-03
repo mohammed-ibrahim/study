@@ -3,7 +3,7 @@
 arabic_to_english_numbers = {u"٠":"0",u"١":"1",u"٢":"2",u"٣":"3",u"٤":"4",u"٥":"5",u"٦":"6",u"٧":"7",u"٨":"8",u"٩":"9"}
 english_to_arabic_numbers = dict((v,k) for k,v in arabic_to_english_numbers.iteritems())
 
-def getNumberInArabic(number):
+def get_number_in_arabic(number):
     strNum = str(number)
     val = ""
 
@@ -14,4 +14,4 @@ def getNumberInArabic(number):
 
 if __name__ == '__main__':
     for i in range(1, 500):
-        print(getNumberInArabic(i))
+        print(get_number_in_arabic(i))

@@ -1,7 +1,8 @@
 import collections
 import json
+from ml_util import get_number_in_arabic
 
-def load_from_file(file_name):
+def load_from_file(file_name, language):
     data = collections.OrderedDict()
 
     with open(file_name) as file_pointer:
@@ -21,10 +22,19 @@ def load_from_file(file_name):
             ayah_number = content[1]
 
             key = surah_number + ":" + ayah_number
-            data[key] = content[2]
+            data[key] = content[2] + get_ayah_number(ayah_number, language).encode('utf8')
             line = file_pointer.readline()
 
     return data
+
+def get_ayah_number(ayah_number, language):
+    if language == 'en':
+        return "(" + ayah_number + ")"
+
+    if language == 'ar' or language == 'ur':
+        return "(" + get_number_in_arabic(ayah_number) + ")"
+
+    raise Exception('Language: ' + language + ' is not supported for numeric translation')
 
 def load_json_from_file(file_name):
     data = None

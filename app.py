@@ -9,7 +9,7 @@ class Translation:
     def __init__(self, author, language, file_name):
         self.author = author
         self.language = language
-        self.content_map = load_from_file(file_name)
+        self.content_map = load_from_file(file_name, self.language)
 
     def get_ayah(self, ayah_number):
         return self.content_map[ayah_number]
@@ -22,7 +22,7 @@ class Translation:
         }
 
 class AppData:
-    arabic = load_from_file("static/arabic/quran-uthmani.txt")
+    arabic = load_from_file("static/arabic/quran-uthmani.txt", "ar")
 
     translation_yusuf_ali = Translation("Yusuf Ali", "en", "static/translations/en.yusufali.txt")
     translation_shakir = Translation("Shakir", "en", "static/translations/en.shakir.txt")
