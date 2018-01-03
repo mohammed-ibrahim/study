@@ -1,4 +1,5 @@
 import collections
+import json
 
 def load_from_file(file_name):
     data = collections.OrderedDict()
@@ -11,5 +12,13 @@ def load_from_file(file_name):
 
         key = surah_number + ":" + ayah_number
         data[key] = content[2]
+
+    return data
+
+def load_json_from_file(file_name):
+    data = None
+
+    with open(file_name) as json_data:
+        data = json.load(json_data)
 
     return data
