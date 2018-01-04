@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory, render_template
 from src.reader import load_from_file, load_json_from_file
 from src.content_manager import get_ruku_content
 
@@ -83,14 +83,14 @@ def get_ruku_data(ruku_number):
 def get_ruku_metadata(ruku_number):
     return jsonify(app_data.get_surah_and_ruku_metadata(ruku_number))
 
-@app.route('/js/<path:path>')
-def send_js(path):
-    return send_from_directory('static/js', path)
+@app.route('/api/surah/metadata')
+def get_surah_metadata():
+    return jsonify(app_data.surah_metadata)
 
-@app.route('/ruku')
-def ruku_page():
+@app.route('/ruku/<int:ruku_number>')
+def ruku_page(ruku_number):
     try:
-        return app.send_static_file('index.html')
+        return render_template('ruku.html')
     except Exception, e:
         return str(e), 500
 
