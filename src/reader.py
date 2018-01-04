@@ -22,7 +22,8 @@ def load_from_file(file_name, language):
             ayah_number = content[1]
 
             key = surah_number + ":" + ayah_number
-            data[key] = content[2] + get_ayah_number(ayah_number, language).encode('utf8')
+            data[key] = content[2]
+            #data[key] = content[2] + get_ayah_number(ayah_number, language).encode('utf8')
             line = file_pointer.readline()
 
     return data
