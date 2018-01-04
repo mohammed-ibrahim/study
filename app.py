@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from src.reader import load_from_file, load_json_from_file
 from src.content_manager import get_ruku_content
 
@@ -22,17 +22,17 @@ class Translation:
         }
 
 class AppData:
-    arabic = load_from_file("static/arabic/quran-uthmani.txt", "ar")
+    arabic = load_from_file("content/arabic/quran-uthmani.txt", "ar")
 
-    translation_yusuf_ali = Translation("Yusuf Ali", "en", "static/translations/en.yusufali.txt")
-    translation_shakir = Translation("Shakir", "en", "static/translations/en.shakir.txt")
-    translation_maulana_maududi = Translation("Maulana Maududi", "ur", "static/translations/ur.maududi.txt")
-    translation_maulana_jalandhry = Translation("Maulana Jalandhry", "ur", "static/translations/ur.jalandhry.txt")
+    translation_yusuf_ali = Translation("Yusuf Ali", "en", "content/translations/en.yusufali.txt")
+    translation_shakir = Translation("Shakir", "en", "content/translations/en.shakir.txt")
+    translation_maulana_maududi = Translation("Maulana Maududi", "ur", "content/translations/ur.maududi.txt")
+    translation_maulana_jalandhry = Translation("Maulana Jalandhry", "ur", "content/translations/ur.jalandhry.txt")
 
-    surah_metadata = load_json_from_file("static/metadata/surah_metadata.json")
-    ruku_to_surah_mapping = load_json_from_file("static/metadata/ruku_to_surah_mapping.json")
-    verse_number_to_root_sequence_mapping = load_json_from_file("static/metadata/verse_number_to_root_sequence_mapping.json")
-    root_statistics = load_json_from_file("static/metadata/root_statistics.json")
+    surah_metadata = load_json_from_file("content/metadata/surah_metadata.json")
+    ruku_to_surah_mapping = load_json_from_file("content/metadata/ruku_to_surah_mapping.json")
+    verse_number_to_root_sequence_mapping = load_json_from_file("content/metadata/verse_number_to_root_sequence_mapping.json")
+    root_statistics = load_json_from_file("content/metadata/root_statistics.json")
 
     translation_sequence = [
         "translation_maulana_jalandhry",
@@ -69,7 +69,7 @@ class AppData:
 
 app_data = AppData()
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def hello_world():
@@ -82,6 +82,17 @@ def get_ruku_data(ruku_number):
 @app.route('/api/ruku/metadata/<int:ruku_number>')
 def get_ruku_metadata(ruku_number):
     return jsonify(app_data.get_surah_and_ruku_metadata(ruku_number))
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('static/js', path)
+
+@app.route('/ruku')
+def ruku_page():
+    try:
+        return app.send_static_file('index.html')
+    except Exception, e:
+        return str(e), 500
 
 if __name__ == '__main__':
    app.run(debug = True)
