@@ -83,11 +83,16 @@ function render(rukuNumber) {
     setRukuSelectBox(rukuNumber);
     //3: Set arabic content
     var firstAyahNumber = pageStateRukuData["aayaah"][0]["ayah_number"];
-    //renderArabicContent(firstAyahNumber);
+    renderArabicContent(firstAyahNumber);
     //4: Set translation
-    //renderTranslation(firstAyahNumber);
+    renderTranslation(firstAyahNumber);
     //5: Set root details
     renderRootDetails(firstAyahNumber);
+}
+
+function navigateToAyah(ayahNumber) {
+    renderTranslation(ayahNumber);
+    renderRootDetails(ayahNumber);
 }
 
 var selectTemplate = `
@@ -126,7 +131,7 @@ function setRukuSelectBox(rukuNumber) {
 }
 
 var arabicContentDivTemplate = `
-                        <div dir="rtl" >__arabic_content_div__</div>
+                        <div dir="rtl" onclick="navigateToAyah('__onclick_param_place_holder__')">__arabic_content_div__</div>
 `;
 function renderArabicContent() {
     var text = "";
@@ -135,7 +140,10 @@ function renderArabicContent() {
 
         var ayahNumber = pageStateRukuData["aayaah"][i]["ayah_number"].split(":")[1];
         var ayahText = pageStateRukuData["aayaah"][i]["arabic_content"]["uthmani"] + " (" + getNumberInArabic(ayahNumber) + ")";
-        text = text + arabicContentDivTemplate.replace("__arabic_content_div__", ayahText);
+        var fullSurahAndAyahNumber = pageStateRukuData["aayaah"][i]["ayah_number"];
+
+        text = text + arabicContentDivTemplate.replace("__onclick_param_place_holder__", fullSurahAndAyahNumber)
+            .replace("__arabic_content_div__", ayahText);
     }
 
     document.getElementById("arabic_content").innerHTML = text;
