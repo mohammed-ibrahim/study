@@ -5,8 +5,13 @@ def get_ruku_content(app_data, ruku_number):
     ruku_data = result["ruku_data"];
 
     aayaah = list()
+    roots = set()
     for ayah_number in ruku_data["aayaah_in_ruku"]:
-        aayaah.append(get_ayah_details(app_data, ayah_number))
+        ayah_details = get_ayah_details(app_data, ayah_number)
+        aayaah.append(ayah_details)
+
+        for root in ayah_details["root_sequence"]:
+            roots.add(root)
 
     data = {
         "surah_name": surah_data["name"],
@@ -19,7 +24,8 @@ def get_ruku_content(app_data, ruku_number):
         "juz_number": "PENDING",
         "ayah_number_sequence": ruku_data["aayaah_in_ruku"],
         "aayaah": aayaah,
-        "translation_sequence": app_data.translation_sequence
+        "translation_sequence": app_data.translation_sequence,
+        "root_details": get_root_details(app_data, roots)
     }
 
     return data
@@ -55,6 +61,25 @@ def get_ayah_details(app_data, ayah_number):
     ayah_details["translations"]["translation_shakir"] = app_data.translation_shakir.get_ayah_and_details(ayah_number);
     ayah_details["translations"]["translation_maulana_maududi"] = app_data.translation_maulana_maududi.get_ayah_and_details(ayah_number);
     ayah_details["translations"]["translation_maulana_jalandhry"] = app_data.translation_maulana_jalandhry.get_ayah_and_details(ayah_number);
-    ayah_details["root_sequence"] = app_data.verse_number_to_root_sequence_mapping[str(ayah_number)]
+
+    str_ayah_number = str(ayah_number)
+    if str_ayah_number in app_data.verse_number_to_root_sequence_mapping:
+        ayah_details["root_sequence"] = app_data.verse_number_to_root_sequence_mapping[str_ayah_number]
+    else:
+        ayah_details["root_sequence"] = list();
 
     return ayah_details
+
+def get_root_details(app_data, roots):
+    response = {}
+
+    for root in roots:
+        response[root] = {
+            "statistics": {
+                "num_of_occurrence": app_data.root_statistics[root]["cardinality"],
+                "appears_number_of_surah": app_data.root_statistics[root]["appears_number_of_surah"]
+            },
+            "english-meaning": "[PENDING]"
+        }
+
+    return response

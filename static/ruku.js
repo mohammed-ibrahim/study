@@ -83,10 +83,11 @@ function render(rukuNumber) {
     setRukuSelectBox(rukuNumber);
     //3: Set arabic content
     var firstAyahNumber = pageStateRukuData["aayaah"][0]["ayah_number"];
-    renderArabicContent(firstAyahNumber);
+    //renderArabicContent(firstAyahNumber);
     //4: Set translation
-    renderTranslation(firstAyahNumber);
+    //renderTranslation(firstAyahNumber);
     //5: Set root details
+    renderRootDetails(firstAyahNumber);
 }
 
 var selectTemplate = `
@@ -161,4 +162,35 @@ function renderTranslation(ayahNumber) {
     }
 
     document.getElementById("translation_content").innerHTML = text;
+}
+
+var rootDataTemplate = `
+                            <tr>
+                                <td class="roots_td_info">
+                                    __root_word__
+                                    <br/>
+                                    __root_stats__
+                                </td>
+                                <td class="roots_td_meaning">
+                                    __root_meaning__
+                                </td>
+                            </tr>
+`;
+
+function renderRootDetails(ayahNumber) {
+    var indexOfAyah = pageStateRukuData["ayah_number_sequence"].indexOf(ayahNumber);
+    var text = "";
+
+    for (var index in pageStateRukuData["aayaah"][indexOfAyah]["root_sequence"]) {
+        var root = pageStateRukuData["aayaah"][indexOfAyah]["root_sequence"][index];
+        var rootStatistics = pageStateRukuData["root_details"][root]["statistics"]["num_of_occurrence"] + ":"
+            + pageStateRukuData["root_details"][root]["statistics"]["appears_number_of_surah"];
+        var englishMeaning = pageStateRukuData["root_details"][root]["english-meaning"];
+
+        text = text + rootDataTemplate.replace("__root_word__", getArabicRepresentation(root))
+            .replace("__root_stats__", rootStatistics)
+            .replace("__root_meaning__", englishMeaning);
+    }
+
+    document.getElementById("roots_table").innerHTML = text;
 }

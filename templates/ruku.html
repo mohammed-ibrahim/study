@@ -5,12 +5,12 @@
             <div><label id="start_of_page_label" class="start_font"> ﷽ </label></div>
 
             <br/>
-            <select dir="rtl" id="surah_selection" class="select_navigation">
+            <select dir="rtl" id="surah_selection" class="select_navigation" onchange="navigateToSurah()">
                 <option>Select 1</option>
                 <option>Select 2</option>
                 <option>Select 3</option>
             </select>
-            <select  dir="rtl" id="ruku_selection" class="select_navigation">
+            <select  dir="rtl" id="ruku_selection" class="select_navigation" onchange="navigateToRuku()">
                 <option>Select 1</option>
                 <option>Select 2</option>
                 <option>Select 3</option>
@@ -31,7 +31,7 @@
                 </tr> -->
                 <tr>
                     <td>
-                        <table class="roots_table">
+                        <table class="roots_table" id="roots_table">
                             <tr>
                                 <td class="roots_td_info">
                                     root1
@@ -91,9 +91,10 @@
         </div>
 
         <script type="text/javascript" src="{{ url_for('static', filename = 'common-utils.js') }}"></script>
-        <!-- script type="text/javascript" src="{{ url_for('static', filename = 'bw-mapping.js') }}"></script -->
+        <script type="text/javascript" src="{{ url_for('static', filename = 'bw-mapping.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'ml-utils.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'ruku.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'navigation.js') }}"></script>
         <style type="text/css">
             .centerdiv {
                 margin: auto;
