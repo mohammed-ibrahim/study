@@ -2,6 +2,23 @@ import collections
 import json
 from ml_util import get_number_in_arabic
 
+def load_kvp_from_file(file_name):
+    data = collections.OrderedDict()
+
+    with open(file_name) as file_pointer:
+        line = file_pointer.readline()
+
+        while line:
+            parts = line.split("|")
+
+            if len(parts) == 2:
+                if len(parts[1].strip()) > 0:
+                    data[parts[0]] = parts[1]
+
+            line = file_pointer.readline()
+
+    return data
+
 def load_from_file(file_name, language):
     data = collections.OrderedDict()
 

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory, render_template
-from src.reader import load_from_file, load_json_from_file
+from src.reader import load_from_file, load_json_from_file, load_kvp_from_file
 from src.content_manager import get_ruku_content
 
 class Translation:
@@ -33,6 +33,8 @@ class AppData:
     ruku_to_surah_mapping = load_json_from_file("content/metadata/ruku_to_surah_mapping.json")
     verse_number_to_root_sequence_mapping = load_json_from_file("content/metadata/verse_number_to_root_sequence_mapping.json")
     root_statistics = load_json_from_file("content/metadata/root_statistics.json")
+
+    english_meaning = load_kvp_from_file("content/translations/english-meaning.txt")
 
     translation_sequence = [
         "translation_maulana_jalandhry",

@@ -74,12 +74,17 @@ def get_root_details(app_data, roots):
     response = {}
 
     for root in roots:
+        english_meaning = "PENDING"
+
+        if root in app_data.english_meaning:
+            english_meaning = app_data.english_meaning[root]
+
         response[root] = {
             "statistics": {
                 "num_of_occurrence": app_data.root_statistics[root]["cardinality"],
                 "appears_number_of_surah": app_data.root_statistics[root]["appears_number_of_surah"]
             },
-            "english-meaning": "[PENDING]"
+            "english-meaning": english_meaning
         }
 
     return response
