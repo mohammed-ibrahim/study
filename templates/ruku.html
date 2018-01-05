@@ -1,7 +1,9 @@
 <html>
     <body>
         <div id="main_div" class="centerdiv">
-            <div></div>
+            <br/>
+            <div><label id="start_of_page_label" class="start_font"> ﷽ </label></div>
+
             <br/>
             <select dir="rtl" id="surah_selection" class="select_navigation">
                 <option>Select 1</option>
@@ -62,16 +64,20 @@
                             </tr>
                         </table> 
                     </td>
-                    <td>
+                    <td id="translation_content">
+                        <br/><label class="author_font">Author</label><br/>
                         <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period.</div>
 
+                        <br/><label class="author_font">Author</label><br/>
                         <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.</div>
 
+                        <br/><label class="author_font">Author</label><br/>
                         <div>In entirely be to at settling felicity. Fruit two match men you seven share. Needed as or is enough points. Miles at smart ﻿no marry whole linen mr. Income joy nor can wisdom summer. Extremely depending he gentleman improving intention rapturous as.</div>
 
+                        <br/><label class="author_font">Author</label><br/>
                         <div>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</div>
                     </td>
-                    <td>
+                    <td id="arabic_content">
                         <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period.</div>
 
                         <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.</div>
@@ -84,6 +90,8 @@
             </table>
         </div>
 
+        <script type="text/javascript" src="{{ url_for('static', filename = 'common-utils.js') }}"></script>
+        <!-- script type="text/javascript" src="{{ url_for('static', filename = 'bw-mapping.js') }}"></script -->
         <script type="text/javascript" src="{{ url_for('static', filename = 'ml-utils.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'ruku.js') }}"></script>
         <style type="text/css">
@@ -126,6 +134,12 @@
             }
             .select_navigation {
                 font-size: 22px;
+            }
+            .start_font {
+                font-size: 30px;
+            }
+            .author_font {
+                font-size: 15px;
             }
         </style>
     </body>
