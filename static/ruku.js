@@ -71,6 +71,7 @@ function makeRukuDataRequest(rukuNumber) {
     xhr.send();
 }
 
+
 function render(rukuNumber) {
     if (!pageStateRukuData) {
 
@@ -88,11 +89,31 @@ function render(rukuNumber) {
     renderTranslation(firstAyahNumber);
     //5: Set root details
     renderRootDetails(firstAyahNumber);
+    //6: Hilight first Ayah.
+    markSelectedAyah(firstAyahNumber);
 }
 
 function navigateToAyah(ayahNumber) {
     renderTranslation(ayahNumber);
     renderRootDetails(ayahNumber);
+    markSelectedAyah(ayahNumber);
+}
+
+var currentAyahSelection = null;
+
+function markSelectedAyah(ayahNumber) {
+    var selectedFontColor = "LightSeaGreen";
+    var defaultFontColor = "Black";
+
+    if (!currentAyahSelection) {
+        document.getElementById(ayahNumber).style.color = selectedFontColor;
+        currentAyahSelection = ayahNumber;
+    } else {
+
+        document.getElementById(currentAyahSelection).style.color = defaultFontColor;
+        document.getElementById(ayahNumber).style.color = selectedFontColor;
+        currentAyahSelection = ayahNumber;
+    }
 }
 
 var selectTemplate = `
@@ -131,7 +152,7 @@ function setRukuSelectBox(rukuNumber) {
 }
 
 var arabicContentDivTemplate = `
-                        <div dir="rtl" onclick="navigateToAyah('__onclick_param_place_holder__')">__arabic_content_div__</div>
+                        <div dir="rtl" id="__arabic_content_id_holder__" onclick="navigateToAyah('__onclick_param_place_holder__')">__arabic_content_div__</div>
 `;
 function renderArabicContent() {
     var text = "";
@@ -143,7 +164,8 @@ function renderArabicContent() {
         var fullSurahAndAyahNumber = pageStateRukuData["aayaah"][i]["ayah_number"];
 
         text = text + arabicContentDivTemplate.replace("__onclick_param_place_holder__", fullSurahAndAyahNumber)
-            .replace("__arabic_content_div__", ayahText);
+            .replace("__arabic_content_div__", ayahText)
+            .replace("__arabic_content_id_holder__", fullSurahAndAyahNumber);
     }
 
     document.getElementById("arabic_content").innerHTML = text;
