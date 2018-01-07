@@ -73,3 +73,11 @@ function navigateToRuku() {
         window.location.href = newUrl;
     }
 }
+
+function navigateToAyah() {
+    var selectedValue = document.getElementById("ayah_selection").value;
+
+    if (selectedValue) {
+        selectAyah(selectedValue);
+    }
+}
