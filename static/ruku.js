@@ -199,12 +199,14 @@ function renderArabicContent(ayahNumber) {
 }
 
 var translationContentDiv = `
-        <div>__translation_content_place_holder__</div>
+        <div dir="__dir_place_holder__">__translation_content_place_holder__</div>
 `;
 
 var authorContentTemplate = `
                         <br/><label class="author_font">__author_text_place_holder__</label><br/><br/>
 `;
+
+var languagesWithDirRtl = [ "ar", "ur" ];
 
 function renderTranslation(ayahNumber) {
     var indexOfAyah = pageStateRukuData["ayah_number_sequence"].indexOf(ayahNumber);
@@ -212,10 +214,21 @@ function renderTranslation(ayahNumber) {
 
     for (var index in pageStateRukuData["translation_sequence"]) {
         var translationKey = pageStateRukuData["translation_sequence"][index];
+
         var translationContent = pageStateRukuData["aayaah"][indexOfAyah]["translations"][translationKey]["ayah_translation"];
         var authorName = pageStateRukuData["aayaah"][indexOfAyah]["translations"][translationKey]["author"];
+        var language = pageStateRukuData["aayaah"][indexOfAyah]["translations"][translationKey]["language"];
+
+        var dir = "";
+        if (languagesWithDirRtl.includes(language)) {
+            dir = "rtl";
+        } else {
+            dir = "ltr";
+        }
+
         text = text + authorContentTemplate.replace("__author_text_place_holder__", authorName);
-        text = text + translationContentDiv.replace("__translation_content_place_holder__", translationContent);
+        text = text + translationContentDiv.replace("__translation_content_place_holder__", translationContent)
+            .replace("__dir_place_holder__", dir);
     }
 
     document.getElementById("translation_content").innerHTML = text;
