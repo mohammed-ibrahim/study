@@ -20,4 +20,5 @@ Translations used in this project are sourced from http://tanzil.net/trans/
     of the text, and shall be reproduced appropriately in all files 
     derived from or containing substantial portion of this text.
 
-  - Meanings of root words is are derived from the website: www.StudyQuran.org
+Root words meaning
+- Meanings of root words is are derived from the website: www.StudyQuran.org
