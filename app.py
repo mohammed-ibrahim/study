@@ -34,7 +34,7 @@ class AppData:
     verse_number_to_root_sequence_mapping = load_json_from_file("content/metadata/verse_number_to_root_sequence_mapping.json")
     root_statistics = load_json_from_file("content/metadata/root_statistics.json")
 
-    english_meaning = load_kvp_from_file("content/translations/english-meaning.txt")
+    english_meaning = load_kvp_from_file("content/translations/english-meaning-v2.txt")
 
     translation_sequence = [
         "translation_maulana_jalandhry",
