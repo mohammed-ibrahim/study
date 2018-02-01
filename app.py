@@ -89,12 +89,21 @@ def get_ruku_metadata(ruku_number):
 def get_surah_metadata():
     return jsonify(app_data.surah_metadata)
 
+@app.route('/api/contest', methods = ['POST'])
+def upload_dictionary():
+    json_data = request.get_json(force=True)
+    return jsonify(json_data)
+
 @app.route('/ruku/<int:ruku_number>')
 def ruku_page(ruku_number):
     try:
         return render_template('ruku.html')
     except Exception, e:
         return str(e), 500
+
+@app.route('/contest/upload')
+def contest_upload_page():
+    return render_template('contest.html')
 
 if __name__ == '__main__':
    app.run(debug = True)
