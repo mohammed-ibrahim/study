@@ -1,6 +1,14 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory, render_template
 from src.reader import load_from_file, load_json_from_file, load_kvp_from_file
 from src.content_manager import get_ruku_content
+from src.contest import upload_contest_data
+
+# ___________                           .__          __  .__
+# \__    ___/___________    ____   _____|  | _____ _/  |_|__| ____   ____
+#   |    |  \_  __ \__  \  /    \ /  ___/  | \__  \\   __\  |/  _ \ /    \
+#   |    |   |  | \// __ \|   |  \\___ \|  |__/ __ \|  | |  (  <_> )   |  \
+#   |____|   |__|  (____  /___|  /____  >____(____  /__| |__|\____/|___|  /
+#                       \/     \/     \/          \/                    \/
 
 class Translation:
     author = None
@@ -20,6 +28,14 @@ class Translation:
             "ayah_translation": self.content_map[str(ayah_number)],
             "language": self.language
         }
+
+#    _____                  ________          __
+#   /  _  \ ______ ______   \______ \ _____ _/  |______
+#  /  /_\  \\____ \\____ \   |    |  \\__  \\   __\__  \
+# /    |    \  |_> >  |_> >  |    `   \/ __ \|  |  / __ \_
+# \____|__  /   __/|   __/  /_______  (____  /__| (____  /
+#         \/|__|   |__|             \/     \/          \/
+
 
 class AppData:
     arabic = load_from_file("content/arabic/quran-uthmani.txt", "ar")
@@ -69,9 +85,45 @@ class AppData:
             "surah_number": surah_number
         }
 
+# _________                __                   __
+# \_   ___ \  ____   _____/  |_  ____   _______/  |_
+# /    \  \/ /  _ \ /    \   __\/ __ \ /  ___/\   __\
+# \     \___(  <_> )   |  \  | \  ___/ \___ \  |  |
+#  \______  /\____/|___|  /__|  \___  >____  > |__|
+#         \/            \/          \/     \/
+class Contest:
+    contest_content = list()
+    initial_keywords = list()
+
+    contest_index = 0
+    initial_index = 0
+
+    def get_next_contest_word(self):
+        index = 0
+        if self.initial_index < len(self.initial_keywords):
+            index = self.initial_index
+            self.initial_index = self.initial_index + 1
+            return (self.initial_keywords[index], 200)
+
+        index = self.contest_index
+        if index >= len(self.contest_content):
+            return ("Dictionary is over", 400)
+
+        self.contest_index = self.contest_index + 1
+        return (self.contest_content[index], 200)
+
+
 app_data = AppData()
+contest_data = Contest()
 
 app = Flask(__name__, static_url_path='')
+
+#    _____         .__
+#   /  _  \ ______ |__|
+#  /  /_\  \\____ \|  |
+# /    |    \  |_> >  |
+# \____|__  /   __/|__|
+#         \/|__|
 
 @app.route('/')
 def hello_world():
@@ -92,7 +144,20 @@ def get_surah_metadata():
 @app.route('/api/contest', methods = ['POST'])
 def upload_dictionary():
     json_data = request.get_json(force=True)
-    return jsonify(json_data)
+    upload_contest_data(contest_data, json_data)
+    return jsonify({"status": "true"})
+
+@app.route('/api/contest/learn')
+def get_next_contest_word():
+    (content, response_code) = contest_data.get_next_contest_word()
+    return jsonify(content), response_code
+
+#   ___ ___   __          .__
+#  /   |   \_/  |_  _____ |  |
+# /    ~    \   __\/     \|  |
+# \    Y    /|  | |  Y Y  \  |__
+#  \___|_  / |__| |__|_|  /____/
+#        \/             \/
 
 @app.route('/ruku/<int:ruku_number>')
 def ruku_page(ruku_number):
@@ -103,7 +168,14 @@ def ruku_page(ruku_number):
 
 @app.route('/contest/upload')
 def contest_upload_page():
-    return render_template('contest.html')
+    return render_template('contest-upload.html')
+
+#    _____         .__
+#   /     \ _____  |__| ____
+#  /  \ /  \\__  \ |  |/    \
+# /    Y    \/ __ \|  |   |  \
+# \____|__  (____  /__|___|  /
+#         \/     \/        \/
 
 if __name__ == '__main__':
    app.run(debug = True)

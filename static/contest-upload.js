@@ -35,6 +35,7 @@ function onUpload() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
 
+          window.location = window.location.protocol + "//" + window.location.host + "/contest/learn";
           console.log(xhr.responseText);
         } else {
 
