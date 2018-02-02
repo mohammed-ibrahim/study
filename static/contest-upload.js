@@ -17,7 +17,7 @@ function onUpload() {
     var content = linedata.split(" - ");
 
     if (content.length == 2) {
-      var dictObj = {key: content[0], value: content[1]};
+      var dictObj = {key: getBuckWalterRepresentation(content[0]), value: content[1]};
       result.push(dictObj);
     } else {
 

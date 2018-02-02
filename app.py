@@ -170,6 +170,10 @@ def ruku_page(ruku_number):
 def contest_upload_page():
     return render_template('contest-upload.html')
 
+@app.route('/contest/learn')
+def contest_learn_page():
+    return render_template('contest-learn.html')
+
 #    _____         .__
 #   /     \ _____  |__| ____
 #  /  \ /  \\__  \ |  |/    \
