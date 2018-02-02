@@ -84,7 +84,7 @@ def get_root_details(app_data, roots):
                 "num_of_occurrence": app_data.root_statistics[root]["cardinality"],
                 "appears_number_of_surah": app_data.root_statistics[root]["appears_number_of_surah"]
             },
-            "english-meaning": english_meaning
+            "english-meaning": unicode(english_meaning, errors='ignore')
         }
 
     return response
