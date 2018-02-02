@@ -192,9 +192,14 @@ def upload_dictionary():
     return jsonify({"status": "true"})
 
 @app.route('/api/contest/learn')
-def get_next_contest_word():
+def get_next_learn():
     (content, response_code) = contest_data.get_next_contest_word()
     #(content, response_code) = contest_data.get_next_mtf()
+    return jsonify(content), response_code
+
+@app.route('/api/contest/mcq')
+def get_next_mcq():
+    (content, response_code) = contest_data.get_next_mcq()
     return jsonify(content), response_code
 
 #   ___ ___   __          .__
@@ -218,6 +223,10 @@ def contest_upload_page():
 @app.route('/contest/learn')
 def contest_learn_page():
     return render_template('contest-learn.html')
+
+@app.route('/contest/mcq')
+def contest_mcq_page():
+    return render_template('contest-mcq.html')
 
 #    _____         .__
 #   /     \ _____  |__| ____

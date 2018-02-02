@@ -1,0 +1,67 @@
+<html>
+    <body>
+        <div id="mcq_div" class="centerdiv">
+
+            <p style="font-size:60" id="mcq_question">This is default question.</p>
+            <font size="+3">
+            <ul class="answers">
+                <input type="radio" name="mcq_radio_button" value="a" id="mcq_a"><label onclick="onOptionLabelClick(this)" id="label_for_mcq_a">Answer 1</label><br/>
+                <input type="radio" name="mcq_radio_button" value="b" id="mcq_b"><label onclick="onOptionLabelClick(this)" id="label_for_mcq_b">Answer 2</label><br/>
+                <input type="radio" name="mcq_radio_button" value="c" id="mcq_c"><label onclick="onOptionLabelClick(this)" id="label_for_mcq_c">Answer 3</label><br/>
+                <input type="radio" name="mcq_radio_button" value="d" id="mcq_d"><label onclick="onOptionLabelClick(this)" id="label_for_mcq_d">Answer 4</label><br/>
+            </ul>
+            </font>
+            <input type="button" class="button" name="Button" value="Submit" onclick="onSubmit()" />
+        </div>
+
+        <br/>
+        <div class="statusbarclass">
+            <label id="status_bar" align="center"></label>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'bw-mapping.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'contest-mcq.js') }}"></script>
+        <style>
+            .button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            .centerdiv {
+                margin: auto;
+                width: 80%;
+                border: 3px solid green;
+                padding: 10px;
+                text-align: center;
+            }
+            .centerdis {
+                position: relative;
+                width: 300px;
+                width: 50%;
+                height: 200px;
+                height: 80%;
+                z-index: 30;
+                top: 20%;
+                left: 50%;
+                margin: -100px 0 0 -150px;
+                text-align: center;
+            }
+
+            .bigfont {
+                font-size: 25px;
+                border-collapse: collapse;
+                border-bottom: 1px solid #ddd;
+            }
+            .statusbarclass {
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
+            }
+        </style>
+    </body>
+<html>
