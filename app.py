@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, send_from_directory,
 from src.reader import load_from_file, load_json_from_file, load_kvp_from_file
 from src.content_manager import get_ruku_content
 from src.contest import upload_contest_data
+from random import shuffle
 
 # ___________                           .__          __  .__
 # \__    ___/___________    ____   _____|  | _____ _/  |_|__| ____   ____
@@ -95,23 +96,66 @@ class Contest:
     contest_content = list()
     initial_keywords = list()
 
-    contest_index = 0
-    initial_index = 0
-
     def get_next_contest_word(self):
-        index = 0
-        if self.initial_index < len(self.initial_keywords):
-            index = self.initial_index
-            self.initial_index = self.initial_index + 1
-            return (self.initial_keywords[index], 200)
+        if (len(self.initial_keywords) > 0):
+            return (self.initial_keywords.pop(), 200)
 
-        index = self.contest_index
-        if index >= len(self.contest_content):
+        if (len(self.contest_content) < 0):
             return ("Dictionary is over", 400)
 
-        self.contest_index = self.contest_index + 1
-        return (self.contest_content[index], 200)
+        return (self.contest_content.pop(), 200)
 
+    def get_next_mcq(self):
+        if (len(self.contest_content) < 4):
+            return ("Dictionary is over", 400)
+
+        selected = self.contest_content.pop()
+        correct_answer = selected['value']
+        question = selected['key']
+
+        size = len(self.contest_content)
+
+        op1 = self.contest_content[size-1]
+        op2 = self.contest_content[size-2]
+        op3 = self.contest_content[size-3]
+
+        options = [selected, op1, op2, op3]
+        shuffle(options)
+        resp = {
+            "question": question,
+            "correct_answer": correct_answer,
+            "options": options
+        }
+
+        shuffle(self.contest_content)
+        return (resp, 200)
+
+    def get_next_mtf(self):
+        if (len(self.contest_content) < 5):
+            return ("Dictionary is over", 400)
+
+        r1 = self.contest_content.pop();
+        r2 = self.contest_content.pop();
+        r3 = self.contest_content.pop();
+        r4 = self.contest_content.pop();
+        r5 = self.contest_content.pop();
+
+        correct_order = {}
+        correct_order[r1['key']] = r1['value']
+        correct_order[r2['key']] = r2['value']
+        correct_order[r3['key']] = r3['value']
+        correct_order[r4['key']] = r4['value']
+        correct_order[r5['key']] = r5['value']
+
+        values = [correct_order[k] for k in correct_order]
+        keys = [k for k in correct_order]
+        shuffle(values)
+        resp = {
+            "input": correct_order,
+            "value_order": values,
+            "key_order": keys
+        }
+        return (resp, 200)
 
 app_data = AppData()
 contest_data = Contest()
@@ -150,6 +194,7 @@ def upload_dictionary():
 @app.route('/api/contest/learn')
 def get_next_contest_word():
     (content, response_code) = contest_data.get_next_contest_word()
+    #(content, response_code) = contest_data.get_next_mtf()
     return jsonify(content), response_code
 
 #   ___ ___   __          .__
