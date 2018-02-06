@@ -1,21 +1,62 @@
+nMaxPages = 7;
 
 window.onload = function() {
+  if (getParameterByName("sat") == null
+  || getParameterByName("crp") == null
+  || getParameterByName("nptd") == null) {
+
+    var d = new Date();
+    var sat = d.getTime();
+    window.location.href = startPage(sat, 1, 0);
+    return;
+  }
+
+  var currentPageNum = parseInt(getParameterByName("crp"));
+
+  if (currentPageNum > nMaxPages) {
+    var sat = getParameterByName("sat");
+    var nptd = getParameterByName("nptd");
+    var mtfUrl = buildMtfUrl(sat, 1, nptd);
+    window.location.href = mtfUrl;
+    return;
+  }
+
   getData();
 };
 
-var needToValidate = false;
+function startPage(startAt, pageNum, numPracticed) {
+  var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
+  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  return url;
+}
+
+function buildMcqUrl(startAt, pageNum, numPracticed) {
+  var url = window.location.protocol + "//" + window.location.host + "/contest/mcq"
+  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  return url;
+}
+
+function buildMtfUrl(startAt, pageNum, numPracticed) {
+  var url = window.location.protocol + "//" + window.location.host + "/contest/mtf"
+  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  return url;
+}
+
 
 function onSubmit() {
-  if (needToValidate) {
-    if (!validateResult()) {
-      return;
-    }
+
+  if (!validateResult()) {
+    return;
   }
 
-  needToValidate = true;
+  var sat = getParameterByName("sat");
+  var crp = parseInt(getParameterByName("crp")) + 1;
+  var nptd = parseInt(getParameterByName("nptd")) + 1;
 
-  resetPanels();
-  getData();
+  window.location.href = buildMcqUrl(sat, crp, nptd);
 }
 
 function resetPanels() {
@@ -92,9 +133,9 @@ function renderPageData() {
 }
 
 function onOptionLabelClick(element) {
-    var elementId = element.id;
-    var lastChar = elementId[elementId.length - 1];
-    document.getElementById("mcq_" + lastChar).checked = true;
+  var elementId = element.id;
+  var lastChar = elementId[elementId.length - 1];
+  document.getElementById("mcq_" + lastChar).checked = true;
 }
 
 function onRootClick() {

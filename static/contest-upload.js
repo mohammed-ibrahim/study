@@ -36,6 +36,7 @@ function onUpload() {
         if (xhr.status === 200) {
 
           window.location = window.location.protocol + "//" + window.location.host + "/contest/learn";
+          //window.location = window.location.protocol + "//" + window.location.host + "/contest/mcq";
           console.log(xhr.responseText);
         } else {
 

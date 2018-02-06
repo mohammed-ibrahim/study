@@ -8,7 +8,7 @@ window.onload = function() {
 
     var d = new Date();
     var sat = d.getTime();
-    window.location.href = buildUrl(sat, 1, 0);
+    window.location.href = buildLearnUrl(sat, 1, 0);
     return;
   }
 
@@ -25,7 +25,7 @@ window.onload = function() {
   getData();
 };
 
-function buildUrl(startAt, pageNum, numPracticed) {
+function buildLearnUrl(startAt, pageNum, numPracticed) {
   var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
   + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
 
@@ -44,7 +44,7 @@ function onSubmit() {
   var crp = parseInt(getParameterByName("crp")) + 1;
   var nptd = parseInt(getParameterByName("nptd")) + 1;
 
-  window.location.href = buildUrl(sat, crp, nptd);
+  window.location.href = buildLearnUrl(sat, crp, nptd);
 }
 
 function getApiUrl() {
