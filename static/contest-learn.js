@@ -1,4 +1,4 @@
-nMaxPages = 7;
+nMaxPages = 2;
 
 window.onload = function() {
 
@@ -28,6 +28,10 @@ window.onload = function() {
 function buildLearnUrl(startAt, pageNum, numPracticed) {
   var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
   + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  if (document.getElementById("learn_show_meaning").checked) {
+    url = url + "&with_meaning=true";
+  }
 
   return url;
 }
@@ -79,13 +83,16 @@ function renderPageData() {
     //document.getElementById("learn_key").innerHTML = pageData["key"];
   }
 
-  if (document.getElementById("learn_show_meaning").checked) {
+  if (getParameterByName("with_meaning") == "true") {
     //Show meaning box.
     document.getElementById("learn_value").style.display = "block";
+    document.getElementById("learn_show_meaning").checked = true;
   } else {
     //Hide meaning box.
     document.getElementById("learn_value").style.display = "none";
+    document.getElementById("learn_show_meaning").checked = false;
   }
+
   if ("value" in pageData) {
     document.getElementById("learn_value").innerHTML = pageData["value"];
   }

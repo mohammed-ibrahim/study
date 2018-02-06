@@ -1,4 +1,4 @@
-nMaxPages = 7;
+nMaxPages = 2;
 
 window.onload = function() {
   if (getParameterByName("sat") == null
@@ -125,7 +125,7 @@ function getData() {
 }
 
 function renderPageData() {
-  document.getElementById("mcq_question").innerHTML = pageData["question"];
+  document.getElementById("mcq_question").innerHTML = getArabicRepresentation(pageData["question"]);
   document.getElementById("label_for_mcq_a").innerHTML = pageData["options"][0]["value"];
   document.getElementById("label_for_mcq_b").innerHTML = pageData["options"][1]["value"];
   document.getElementById("label_for_mcq_c").innerHTML = pageData["options"][2]["value"];
