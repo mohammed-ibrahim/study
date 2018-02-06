@@ -1,11 +1,52 @@
+nMaxPages = 7;
 
 window.onload = function() {
+
+  if (getParameterByName("sat") == null
+  || getParameterByName("crp") == null
+  || getParameterByName("nptd") == null) {
+
+    var d = new Date();
+    var sat = d.getTime();
+    window.location.href = buildUrl(sat, 1, 0);
+    return;
+  }
+
+  var currentPageNum = parseInt(getParameterByName("crp"));
+
+  if (currentPageNum > nMaxPages) {
+    var sat = getParameterByName("sat");
+    var nptd = getParameterByName("nptd");
+    var mcqUrl = buildMcqUrl(sat, 1, nptd);
+    window.location.href = mcqUrl;
+    return;
+  }
+
   getData();
 };
 
-function onSubmit() {
-  getData();
+function buildUrl(startAt, pageNum, numPracticed) {
+  var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
+  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  return url;
 }
+
+function buildMcqUrl(startAt, pageNum, numPracticed) {
+  var url = window.location.protocol + "//" + window.location.host + "/contest/mcq"
+  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  return url;
+}
+
+function onSubmit() {
+  var sat = getParameterByName("sat");
+  var crp = parseInt(getParameterByName("crp")) + 1;
+  var nptd = parseInt(getParameterByName("nptd")) + 1;
+
+  window.location.href = buildUrl(sat, crp, nptd);
+}
+
 function getApiUrl() {
 
   return window.location.protocol + "//" + window.location.host + "/api/contest/learn";
@@ -35,6 +76,7 @@ function getData() {
 function renderPageData() {
   if ("key" in pageData) {
     document.getElementById("learn_key").innerHTML = getArabicRepresentation(pageData["key"]);
+    //document.getElementById("learn_key").innerHTML = pageData["key"];
   }
 
   if (document.getElementById("learn_show_meaning").checked) {
