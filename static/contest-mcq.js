@@ -1,13 +1,9 @@
 nMaxPages = 7;
 
 window.onload = function() {
-  if (getParameterByName("sat") == null
-  || getParameterByName("crp") == null
-  || getParameterByName("nptd") == null) {
 
-    var d = new Date();
-    var sat = d.getTime();
-    window.location.href = startPage(sat, 1, 0);
+  if (brokenUrl()) {
+    safeRedirect();
     return;
   }
 
@@ -24,33 +20,11 @@ window.onload = function() {
   getData();
 };
 
-function startPage(startAt, pageNum, numPracticed) {
-  var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
-  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
-
-  return url;
-}
-
-function buildMcqUrl(startAt, pageNum, numPracticed) {
-  var url = window.location.protocol + "//" + window.location.host + "/contest/mcq"
-  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
-
-  return url;
-}
-
-function buildMtfUrl(startAt, pageNum, numPracticed) {
-  var url = window.location.protocol + "//" + window.location.host + "/contest/mtf"
-  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
-
-  return url;
-}
-
-
 function onSubmit() {
 
-  if (!validateResult()) {
-    return;
-  }
+  //if (!validateResult()) {
+  //  return;
+  //}
 
   var sat = getParameterByName("sat");
   var crp = parseInt(getParameterByName("crp")) + 1;
@@ -64,11 +38,6 @@ function resetPanels() {
   document.getElementById("mcq_b").checked = false;
   document.getElementById("mcq_c").checked = false;
   document.getElementById("mcq_d").checked = false;
-}
-
-function getApiUrl() {
-
-  return window.location.protocol + "//" + window.location.host + "/api/contest/mcq";
 }
 
 var pageData = {}
@@ -107,7 +76,7 @@ function validateResult() {
 
 function getData() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', getApiUrl(), true);
+  xhr.open('GET', getContestApiUrl('mcq'), true);
 
   xhr.onreadystatechange = function() {
 
@@ -117,7 +86,7 @@ function getData() {
     }
 
     if (xhr.readyState == XMLHttpRequest.DONE && xhr.status != 200) {
-      console.error("Api request failed: " + getApiUrl());
+      console.error("Api request failed: " + getContestApiUrl('mcq'));
     }
   }
 

@@ -96,9 +96,13 @@ class Contest:
     contest_content = list()
     initial_keywords = list()
 
-    def get_next_contest_word(self):
+    def get_next_initial(self):
         if (len(self.initial_keywords) > 0):
             return (self.initial_keywords.pop(), 200)
+
+        return ("Dictionary is over", 405)
+
+    def get_next_contest_word(self):
 
         if (len(self.contest_content) < 0):
             return ("Dictionary is over", 400)
@@ -191,10 +195,14 @@ def upload_dictionary():
     upload_contest_data(contest_data, json_data)
     return jsonify({"status": "true"})
 
+@app.route('/api/contest/initial')
+def get_next_initial():
+    (content, response_code) = contest_data.get_next_initial()
+    return jsonify(content), response_code
+
 @app.route('/api/contest/learn')
 def get_next_learn():
     (content, response_code) = contest_data.get_next_contest_word()
-    #(content, response_code) = contest_data.get_next_mtf()
     return jsonify(content), response_code
 
 @app.route('/api/contest/mcq')
@@ -224,6 +232,10 @@ def ruku_page(ruku_number):
 @app.route('/contest/upload')
 def contest_upload_page():
     return render_template('contest-upload.html')
+
+@app.route('/contest/initial')
+def contest_initial_page():
+    return render_template('contest-initial.html')
 
 @app.route('/contest/learn')
 def contest_learn_page():

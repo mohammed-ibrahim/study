@@ -1,21 +1,13 @@
 <html>
     <body>
-
-        <div hidden>
-            <label>page_state_holder</label>
-            <input id="page_state_holder" type="text" value="dontknow"/>
+        <div id="learn_div" class="centerdiv">
+            <p style="font-size:60" id="learn_key" onclick="onRootClick()">Key</p>
+            <p style="font-size:60" id="learn_value">Value</p>
             <br/>
-            <label>window_count_holder</label>
-            <input id="window_count_holder" type="text" value="dontknow"/>
-        </div>
-        <!-- Section: Input -->
-        <div id="input_div" class="centerdiv">
-            <p>
-                <textarea id="primary_input_text" name="Text" rows="15" cols="36">input_key - input_value</textarea>
-                <br/>
-                <br/>
-                <input type="button" class="button" name="Button" value="Submit" onclick="onUpload()" />
-            </p>
+            <input type="checkbox" id="learn_show_meaning"/><label onclick="toggleMeaningBox()">Show Meaning</label>
+            <br/>
+            <br/>
+            <input type="button" class="button" name="Button" value="Submit" onclick="onSubmit()" />
         </div>
 
         <br/>
@@ -24,8 +16,9 @@
         </div>
 
         <script type="text/javascript" src="{{ url_for('static', filename = 'url-builder.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'common-utils.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'bw-mapping.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename = 'contest-upload.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'contest-initial.js') }}"></script>
         <style>
             .button {
                 background-color: #4CAF50; /* Green */

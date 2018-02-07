@@ -14,13 +14,9 @@ var colorCodeMapping = {
 }
 
 window.onload = function() {
-  if (getParameterByName("sat") == null
-  || getParameterByName("crp") == null
-  || getParameterByName("nptd") == null) {
 
-    var d = new Date();
-    var sat = d.getTime();
-    window.location.href = startPage(sat, 1, 0);
+  if (brokenUrl()) {
+    safeRedirect();
     return;
   }
 
@@ -29,7 +25,7 @@ window.onload = function() {
   if (currentPageNum > nMaxPages) {
     var sat = getParameterByName("sat");
     var nptd = getParameterByName("nptd");
-    var mtfUrl = buildMtfUrl(sat, 1, nptd);
+    var mtfUrl = buildLearnUrl(sat, 1, nptd);
     window.location.href = mtfUrl;
     return;
   }
@@ -37,37 +33,12 @@ window.onload = function() {
   getData();
 };
 
-function startPage(startAt, pageNum, numPracticed) {
-  var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
-  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
-
-  return url;
-}
-
-function buildMtfUrl(startAt, pageNum, numPracticed) {
-  var url = window.location.protocol + "//" + window.location.host + "/contest/mtf"
-  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
-
-  return url;
-}
-
-function buildLearnUrl(startAt, pageNum, numPracticed) {
-  var url = window.location.protocol + "//" + window.location.host + "/contest/learn"
-  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
-
-  if (document.getElementById("learn_show_meaning").checked) {
-    url = url + "&with_meaning=true";
-  }
-
-  return url;
-}
-
 
 function onSubmit() {
 
-  if (!validateResult()) {
-    return;
-  }
+  // if (!validateResult()) {
+  //   return;
+  // }
 
   var sat = getParameterByName("sat");
   var crp = parseInt(getParameterByName("crp")) + 1;
@@ -81,11 +52,6 @@ function resetPanels() {
   document.getElementById("mcq_b").checked = false;
   document.getElementById("mcq_c").checked = false;
   document.getElementById("mcq_d").checked = false;
-}
-
-function getApiUrl() {
-
-  return window.location.protocol + "//" + window.location.host + "/api/contest/mtf";
 }
 
 var pageData = {}
@@ -129,7 +95,7 @@ function validateResult() {
 
 function getData() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', getApiUrl(), true);
+  xhr.open('GET', getContestApiUrl('mtf'), true);
 
   xhr.onreadystatechange = function() {
 
@@ -139,7 +105,7 @@ function getData() {
     }
 
     if (xhr.readyState == XMLHttpRequest.DONE && xhr.status != 200) {
-      console.error("Api request failed: " + getApiUrl());
+      console.error("Api request failed: " + getContestApiUrl('mtf'));
     }
   }
 

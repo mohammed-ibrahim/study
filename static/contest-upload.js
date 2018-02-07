@@ -35,8 +35,12 @@ function onUpload() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
 
-          window.location = window.location.protocol + "//" + window.location.host + "/contest/learn";
-          //window.location = window.location.protocol + "//" + window.location.host + "/contest/mcq";
+          //window.location = window.location.protocol + "//" + window.location.host + "/contest/learn";
+          var d = new Date();
+          var sat = d.getTime();
+          window.location.href = buildInitialUrl(sat, 1, 0);
+
+  //        window.location = window.location.protocol + "//" + window.location.host + "/contest/mtf";
           console.log(xhr.responseText);
         } else {
 

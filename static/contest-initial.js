@@ -1,19 +1,9 @@
-nMaxPages = 7;
+
 
 window.onload = function() {
 
   if (brokenUrl()) {
     safeRedirect();
-    return;
-  }
-
-  var currentPageNum = parseInt(getParameterByName("crp"));
-
-  if (currentPageNum > nMaxPages) {
-    var sat = getParameterByName("sat");
-    var nptd = getParameterByName("nptd");
-    var mcqUrl = buildMcqUrl(sat, 1, nptd);
-    window.location.href = mcqUrl;
     return;
   }
 
@@ -25,24 +15,34 @@ function onSubmit() {
   var crp = parseInt(getParameterByName("crp")) + 1;
   var nptd = parseInt(getParameterByName("nptd")) + 1;
 
-  window.location.href = buildLearnUrl(sat, crp, nptd);
+  window.location.href = buildInitialUrl(sat, crp, nptd);
 }
 
 var pageData = {}
 
 function getData() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', getContestApiUrl('learn'), true);
+  xhr.open('GET', getContestApiUrl('initial'), true);
 
   xhr.onreadystatechange = function() {
 
     if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
       pageData = JSON.parse(xhr.responseText);
       renderPageData();
+      return;
+    }
+
+    if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 405) {
+      console.log("url sent 405 redirecting to learn page...");
+      var sat = getParameterByName("sat");
+      var nptd = getParameterByName("nptd");
+      var url = buildLearnUrl(sat, 1, nptd);
+      window.location.href = url;
+      return;
     }
 
     if (xhr.readyState == XMLHttpRequest.DONE && xhr.status != 200) {
-      console.error("Api request failed: " + getContestApiUrl('learn'));
+      console.error("Api request failed: " + getContestApiUrl('initial'));
     }
   }
 
