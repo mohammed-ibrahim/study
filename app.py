@@ -202,6 +202,11 @@ def get_next_mcq():
     (content, response_code) = contest_data.get_next_mcq()
     return jsonify(content), response_code
 
+@app.route('/api/contest/mtf')
+def get_next_mtf():
+    (content, response_code) = contest_data.get_next_mtf()
+    return jsonify(content), response_code
+
 #   ___ ___   __          .__
 #  /   |   \_/  |_  _____ |  |
 # /    ~    \   __\/     \|  |
@@ -227,6 +232,10 @@ def contest_learn_page():
 @app.route('/contest/mcq')
 def contest_mcq_page():
     return render_template('contest-mcq.html')
+
+@app.route('/contest/mtf')
+def contest_mtf_page():
+    return render_template('contest-mtf.html')
 
 #    _____         .__
 #   /     \ _____  |__| ____

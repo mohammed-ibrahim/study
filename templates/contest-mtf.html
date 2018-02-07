@@ -1,0 +1,126 @@
+<html>
+    <body>
+
+      <!-- Section: MAT -->
+        <div id="mat_div" class="centerdiv">
+
+            <input id="last_lhs_selection_id_holder" type="text" value="dontknow" hidden />
+
+            <font size="+7"><p>Match the following</p></font>
+            <table style="width:100%" class="bigfont" border="1">
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                </tr>
+                <!-- ********************************** Row Start ***************************************  -->
+                <tr>
+                    <td id="mat_td_lhs_lab_a" onclick="markLastSelection(this)">
+                        <p style="font-size:45;text-align: center" id="mat_lhs_label_a" value="default_value_lhs">Label_lHS</p>
+                    </td>
+                    <td id="mat_td_rhs_lab_a" onclick="matchLastSelection(this)">
+                        <p style="font-size: 30;text-align: center" id="mat_rhs_label_a" value="default_value_rhs">Label_RHS</p>
+                    </td>
+                </tr>
+
+                <!-- ********************************** Row Start ***************************************  -->
+                <tr>
+                    <td id="mat_td_lhs_lab_b" onclick="markLastSelection(this)">
+                        <p style="font-size:45;text-align: center" id="mat_lhs_label_b" value="default_value_lhs">Label_lHS</p>
+                    </td>
+                    <td id="mat_td_rhs_lab_b" onclick="matchLastSelection(this)">
+                        <p style="font-size: 30;text-align: center" id="mat_rhs_label_b" value="default_value_rhs">Label_RHS</p>
+                    </td>
+                </tr>
+
+                <!-- ********************************** Row Start ***************************************  -->
+                <tr>
+                    <td id="mat_td_lhs_lab_c" onclick="markLastSelection(this)">
+                        <p style="font-size:45;text-align: center" id="mat_lhs_label_c" value="default_value_lhs">Label_lHS</p>
+                    </td>
+                    <td id="mat_td_rhs_lab_c" onclick="matchLastSelection(this)">
+                        <p style="font-size: 30;text-align: center" id="mat_rhs_label_c" value="default_value_rhs">Label_RHS</p>
+                    </td>
+                </tr>
+
+                <!-- ********************************** Row Start ***************************************  -->
+                <tr>
+                    <td id="mat_td_lhs_lab_d" onclick="markLastSelection(this)">
+                        <p style="font-size:45;text-align: center" id="mat_lhs_label_d" value="default_value_lhs">Label_lHS</p>
+                    </td>
+                    <td id="mat_td_rhs_lab_d" onclick="matchLastSelection(this)">
+                        <p style="font-size: 30;text-align: center" id="mat_rhs_label_d" value="default_value_rhs">Label_RHS</p>
+                    </td>
+                </tr>
+
+                <!-- ********************************** Row Start ***************************************  -->
+                <tr>
+                    <td id="mat_td_lhs_lab_e" onclick="markLastSelection(this)">
+                        <p style="font-size:45;text-align: center" id="mat_lhs_label_e" value="default_value_lhs">Label_lHS</p>
+                    </td>
+                    <td id="mat_td_rhs_lab_e" onclick="matchLastSelection(this)">
+                        <p style="font-size: 30;text-align: center" id="mat_rhs_label_e" value="default_value_rhs">Label_RHS</p>
+                    </td>
+                </tr>
+
+            </table>
+            <br/>
+            <p>
+                <!-- input type="checkbox" id="auto_fill_mat_colors" checked="true"/ -->
+                <label onclick="resetSelections()">Reset</label>
+            </p>
+            <br/>
+            <input type="button" class="button" name="Button" value="Submit" onclick="onSubmit()" />
+        </div>
+
+        <br/>
+        <div class="statusbarclass">
+            <label id="status_bar" align="center"></label>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'common-utils.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'bw-mapping.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'contest-mtf.js') }}"></script>
+        <style>
+            .button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            .centerdiv {
+                margin: auto;
+                width: 80%;
+                border: 3px solid green;
+                padding: 10px;
+                text-align: center;
+            }
+            .centerdis {
+                position: relative;
+                width: 300px;
+                width: 50%;
+                height: 200px;
+                height: 80%;
+                z-index: 30;
+                top: 20%;
+                left: 50%;
+                margin: -100px 0 0 -150px;
+                text-align: center;
+            }
+
+            .bigfont {
+                font-size: 25px;
+                border-collapse: collapse;
+                border-bottom: 1px solid #ddd;
+            }
+            .statusbarclass {
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
+            }
+        </style>
+    </body>
+<html>
