@@ -1,4 +1,4 @@
-nMaxPages = 2;
+nMaxPages = 7;
 
 window.onload = function() {
 

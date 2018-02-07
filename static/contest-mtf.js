@@ -111,15 +111,11 @@ function validateResult() {
     var lastCharOfRhsTdId = rhsTdId[rhsTdId.length - 1];
     // var lastCharOfLhsTdId = lhsTdId[lhsTdId.length - 1];
 
-    console.log("checking for key: " + (lhsLabelTemplate + selectionItems[i]));
-    console.log("matching for rhs: " + (rhsLabelTemplate + lastCharOfRhsTdId));
     var matchedKey = document.getElementById(lhsLabelTemplate + selectionItems[i]).innerHTML;
     var matchedValue = document.getElementById(rhsLabelTemplate + lastCharOfRhsTdId).innerHTML;
 
     var expectedAnswer = pageData["input"][getBuckWalterRepresentation(matchedKey)];
 
-    console.log("expectedAnswer: " + expectedAnswer);
-    console.log("selectedAnswer: " + matchedValue);
 
     if (expectedAnswer !== matchedValue) {
 
