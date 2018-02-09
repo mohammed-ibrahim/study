@@ -8,5 +8,7 @@ def upload_contest_data(contest_data, content):
     for i in range(min(20, len(content))):
         contest_data.initial_keywords.append(content[i])
 
+    contest_data.initial_keywords.reverse()
+
     shuffle(content)
     contest_data.contest_content = content
