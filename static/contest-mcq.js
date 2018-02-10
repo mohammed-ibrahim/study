@@ -22,9 +22,9 @@ window.onload = function() {
 
 function onSubmit() {
 
-  //if (!validateResult()) {
-  //  return;
-  //}
+  if (!validateResult()) {
+    return;
+  }
 
   var sat = getParameterByName("sat");
   var crp = parseInt(getParameterByName("crp")) + 1;
