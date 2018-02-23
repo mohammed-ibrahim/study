@@ -68,7 +68,7 @@ def getRukuMetaData(ruku, ruku_index, num_of_previous_ruku):
         aayaah_in_ruku = []
         next_key = str(ruku_list[ruku_index+1][0]) + ":" + str(ruku_list[ruku_index+1][1])
         next_index = aayaah_mapping.index(next_key)
-        
+
 
         for i in range(index, next_index):
             aayaah_in_ruku.append(aayaah_mapping[i])
@@ -115,7 +115,7 @@ def getRoot(features):
     return None
 
 def populateArabicContent():
-    with open(file_name, 'r') as file_pointer: 
+    with open(file_name, 'r') as file_pointer:
         d = collections.OrderedDict()
         ayah_root_sequence = collections.OrderedDict()
         root_statistics = collections.OrderedDict()
@@ -165,17 +165,22 @@ def populateArabicContent():
                     if bw_root_text not in root_statistics:
                         root_statistics[bw_root_text] = {
                             'cardinality': 0,
-                            'appears_in_surah_number': set()
+                            'appears_in_surah_number': set(),
+                            'aayaah': list()
                         }
 
                     root_statistics[bw_root_text]['cardinality'] = root_statistics[bw_root_text]['cardinality'] + 1
                     root_statistics[bw_root_text]['appears_in_surah_number'].add(surah_number)
+
+                    if ayah_index not in root_statistics[bw_root_text]['aayaah']:
+                        root_statistics[bw_root_text]['aayaah'].append(ayah_index)
 
             line = file_pointer.readline()
 
         for bw_root_text in root_statistics:
             root_statistics[bw_root_text]['appears_in_surah_number'] = list(root_statistics[bw_root_text]['appears_in_surah_number'])
             root_statistics[bw_root_text]['appears_number_of_surah'] = len(root_statistics[bw_root_text]['appears_in_surah_number'])
+            root_statistics[bw_root_text].pop('appears_in_surah_number', None)
 
         for key, value in d.iteritems():
             aayaah_mapping.append(key);
