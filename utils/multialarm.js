@@ -4,7 +4,7 @@ var ST_ON_ALARM = "ON_ALARM";
 var N_ALARMS = 15;
 
 //TODO: convert to minutes later
-var SNOOZE_TOME = 3;
+var SNOOZE_TIME = 3;
 
 var actionButtons = [
   "start_button",
@@ -18,6 +18,12 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 window.onbeforeunload = function() {
+
+  if (isDebug()) {
+
+    return true;
+  }
+
   var ans = confirm("Are you sure you want change page!");
   if(ans == true) {
 
@@ -39,7 +45,38 @@ window.onload = function() {
   document.getElementById("placement").innerHTML = buffer;
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+
+    name = name.replace(/[\[\]]/g, "\\$&");
+
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+
+    if (!results) return null;
+
+    if (!results[2]) return '';
+
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function isDebug() {
+  var v = getParameterByName("test");
+
+  if (v == "true") {
+    return true;
+  }
+
+  return false;
+}
+
 function convertToMinutes(value) {
+
+  if (isDebug()) {
+
+    return parseInt(value);
+  }
+
   return parseInt(value) * 60;
 }
 
@@ -99,7 +136,7 @@ function startAlarm(element) {
   showOnlyButtons(["close_button"], id);
   var selectedValue = document.getElementById("select_" + id).value;
 
-  updateStatus(ST_COUNTING, convertToMinutes(selectedValue), id);
+  updateStatus(ST_COUNTING, selectedValue, id);
 }
 
 function closeAlarm(element) {
@@ -110,12 +147,12 @@ function closeAlarm(element) {
   updateStatus(ST_PENDING, 0, id);
 }
 
-function snoozeAlarm() {
+function snoozeAlarm(element) {
 
   var id = getIdentifier(element);
   showOnlyButtons(["close_button"], id);
   pauseAudio();
-  updateStatus(ST_COUNTING, SNOOZE_TOME, id);
+  updateStatus(ST_COUNTING, SNOOZE_TIME, id);
 }
 
 function getStatus(id) {
