@@ -3,8 +3,13 @@ var ST_COUNTING = "COUNTING";
 var ST_ON_ALARM = "ON_ALARM";
 var N_ALARMS = 15;
 
-//TODO: convert to minutes later
-var SNOOZE_TIME = 3;
+var colorMap = {
+  "PENDING": "Lavender",
+  "COUNTING": "PeachPuff",
+  "ON_ALARM": "MediumVioletRed"
+}
+
+var SNOOZE_TIME = 5;
 
 var actionButtons = [
   "start_button",
@@ -13,71 +18,58 @@ var actionButtons = [
 ];
 
 String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
+  var target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
 };
+
+var debugging = true;
+
+function isDebug() {
+  return debugging;
+}
+
+function anyCountingAlarms() {
+
+  for (i=0;  i < N_ALARMS; i++) {
+    var id = (i+1).toString();
+    var status = document.getElementById("status_" + id).innerHTML;
+
+    if (status == ST_COUNTING) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 window.onbeforeunload = function() {
 
+  console.log("Entered onbeforeunload");
   if (isDebug()) {
 
-    return true;
+    console.log("onbeforeunload::isDebug");
+    return null;
   }
 
-  var ans = confirm("Are you sure you want change page!");
-  if(ans == true) {
+  console.log("onbeforeunload::Space1");
+  if (!anyCountingAlarms()) {
 
-    return true;
-  } else {
-
-    return false;
+    console.log("onbeforeunload::anyCountingAlarms");
+    return null;
   }
+
+  return true;
 };
 
 window.onload = function() {
   var template = document.getElementById("template").innerHTML;
   var buffer = "";
 
-  for (i=0;  i<N_ALARMS; i++) {
+  for (i=0;  i < N_ALARMS ; i++) {
     buffer = buffer + template.replaceAll("_placeholder", "_" + (i+1).toString())
   }
 
   document.getElementById("placement").innerHTML = buffer;
-}
-
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-
-    name = name.replace(/[\[\]]/g, "\\$&");
-
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-
-    if (!results) return null;
-
-    if (!results[2]) return '';
-
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-function isDebug() {
-  var v = getParameterByName("test");
-
-  if (v == "true") {
-    return true;
-  }
-
-  return false;
-}
-
-function convertToMinutes(value) {
-
-  if (isDebug()) {
-
-    return parseInt(value);
-  }
-
-  return parseInt(value) * 60;
 }
 
 function getIdentifier(element) {
@@ -120,23 +112,54 @@ function showOnlyButtons(arr, id) {
   }
 }
 
-function updateStatus(state, count, id) {
+function updateStatus(state, id) {
   document.getElementById("status_" + id).innerHTML = state;
+  var bgkColor = colorMap[state];
+  console.log("bgkColor: ", bgkColor);
+  document.getElementById("status_" + id).style.backgroundColor = bgkColor;
 
-  if (count != null) {
-    document.getElementById("count_" + id).innerHTML = count.toString();
+  if (state != ST_PENDING) {
+    var endAt = parseInt(document.getElementById("end_at_" + id).innerHTML);
+
+    var currentDate = new Date();
+    var difference = endAt - currentDate.getTime();
+    var nHours = parseInt((difference/3600000) % 24);
+    var nMins = parseInt((difference/60000) % 60);
+    var nSecs = parseInt((difference/1000) % 60);
+
+    var text = "Rem: "
+    + nHours.toString() + "h "
+    + nMins.toString() + "m "
+    + nSecs.toString() + "s";
+
+    document.getElementById("count_" + id).innerHTML = text;
+  } else {
+
+    document.getElementById("count_" + id).innerHTML = "";
   }
+}
+
+function applyFactor() {
+  if (isDebug()) {
+
+    return 1000;
+  }
+
+  return 60000;
 }
 
 function startAlarm(element) {
   var id = getIdentifier(element);
-  var strCount = document.getElementById("count_" + id).innerHTML;
-  var intCount = parseInt(strCount);
 
   showOnlyButtons(["close_button"], id);
-  var selectedValue = document.getElementById("select_" + id).value;
+  var minutesToAdd = document.getElementById("select_" + id).value;
 
-  updateStatus(ST_COUNTING, selectedValue, id);
+  var date = new Date();
+  var alarmAt = new Date(date.getTime() + (minutesToAdd * applyFactor()));
+  var alarmAtStamp = alarmAt.getTime().toString();
+  document.getElementById("end_at_" + id).innerHTML = alarmAtStamp;
+
+  updateStatus(ST_COUNTING, id);
 }
 
 function closeAlarm(element) {
@@ -144,7 +167,7 @@ function closeAlarm(element) {
   var id = getIdentifier(element);
   pauseAudio();
   showOnlyButtons(["start_button"], id);
-  updateStatus(ST_PENDING, 0, id);
+  updateStatus(ST_PENDING, id);
 }
 
 function snoozeAlarm(element) {
@@ -152,44 +175,38 @@ function snoozeAlarm(element) {
   var id = getIdentifier(element);
   showOnlyButtons(["close_button"], id);
   pauseAudio();
-  updateStatus(ST_COUNTING, SNOOZE_TIME, id);
-}
 
-function getStatus(id) {
-  var state = document.getElementById("status_" + id).innerHTML;
-  var count = parseInt(document.getElementById("count_" + id).innerHTML);
+  var minutesToAdd = SNOOZE_TIME;
+  var date = new Date();
+  var alarmAt = new Date(date.getTime() + (minutesToAdd * applyFactor()));
+  var alarmAtStamp = alarmAt.getTime().toString();
+  document.getElementById("end_at_" + id).innerHTML = alarmAtStamp;
 
-  if (!isNaN(count)) {
-    return {
-      "state": state,
-      "count": count
-    }
-  }
+  updateStatus(ST_COUNTING, id);
 }
 
 function counter() {
-  for (i=0;  i<N_ALARMS; i++) {
+  for (i=0;  i < N_ALARMS; i++) {
     counterFor((i+1).toString());
   }
 }
 
 function counterFor(id) {
 
-  var status = getStatus(id);
+  var status = document.getElementById("status_" + id).innerHTML;
+  if (status != null && status == ST_COUNTING) {
 
-  if (status != null && status.state == ST_COUNTING) {
+    var endAt = parseInt(document.getElementById("end_at_" + id).innerHTML);
+    var currentTime = new Date().getTime();
 
-    var count = status.count;
-
-    if (count <= 0) {
+    if (endAt <= currentTime) {
 
       playAudio();
       showOnlyButtons(["snooze_button","close_button"], id);
-      updateStatus(ST_ON_ALARM, 0, id);
+      updateStatus(ST_ON_ALARM, id);
     } else {
 
-      count = count - 1;
-      updateStatus(status.state, count, id);
+      updateStatus(status, id);
     }
   }
 
