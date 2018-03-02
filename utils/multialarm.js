@@ -22,7 +22,7 @@ String.prototype.replaceAll = function(search, replacement) {
   return target.replace(new RegExp(search, 'g'), replacement);
 };
 
-var debugging = true;
+var debugging = !true;
 
 function isDebug() {
   return debugging;
