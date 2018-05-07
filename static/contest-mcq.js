@@ -12,7 +12,7 @@ window.onload = function() {
   if (currentPageNum > nMaxPages) {
     var sat = getParameterByName("sat");
     var nptd = getParameterByName("nptd");
-    var mtfUrl = buildMtfUrl(sat, 1, nptd);
+    var mtfUrl = buildSimUrl(sat, 1, nptd);
     window.location.href = mtfUrl;
     return;
   }

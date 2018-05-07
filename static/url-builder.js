@@ -3,6 +3,10 @@ function buildUploadUrl() {
   return window.location.protocol + "//" + window.location.host + "/contest/upload";
 }
 
+function buildSuggestApiUrl(term) {
+  return window.location.protocol + "//" + window.location.host + "/api/suggest/" + term;
+}
+
 function buildInitialUrl(startAt, pageNum, numPracticed) {
   var url = window.location.protocol + "//" + window.location.host + "/contest/initial"
   + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
@@ -36,6 +40,13 @@ function buildMcqUrl(startAt, pageNum, numPracticed) {
 
 function buildMtfUrl(startAt, pageNum, numPracticed) {
   var url = window.location.protocol + "//" + window.location.host + "/contest/mtf"
+  + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
+
+  return url;
+}
+
+function buildSimUrl(startAt, pageNum, numPracticed) {
+  var url = window.location.protocol + "//" + window.location.host + "/contest/sim"
   + "?sat=" + startAt.toString() + "&crp=" + pageNum.toString() + "&nptd=" + numPracticed.toString();
 
   return url;

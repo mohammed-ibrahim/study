@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory, render_template
 from src.reader import load_from_file, load_json_from_file, load_kvp_from_file
-from src.content_manager import get_ruku_content
+from src.content_manager import get_ruku_content, get_root_details
 from src.contest import upload_contest_data
 from random import shuffle
+from src.root_suggestions import suggest_root
+from src.root_suggestions import get_all_suggestions
 
 # ___________                           .__          __  .__
 # \__    ___/___________    ____   _____|  | _____ _/  |_|__| ____   ____
@@ -95,6 +97,13 @@ class AppData:
 class Contest:
     contest_content = list()
     initial_keywords = list()
+    _iterator = None
+
+    def __init__(self):
+        sim_suggestions = load_json_from_file("content/metadata/sim_suggestions.json")
+        sim_suggestions = [a for a in sim_suggestions if len(a) > 1]
+        shuffle(sim_suggestions)
+        self._iterator = iter(sim_suggestions)
 
     def get_next_initial(self):
         if (len(self.initial_keywords) > 0):
@@ -161,6 +170,16 @@ class Contest:
         }
         return (resp, 200)
 
+    def get_next_sim(self):
+
+        try:
+            element = next(self._iterator)
+            return (element, 200)
+
+        except StopIteration:
+            return ([], 400)
+
+
 app_data = AppData()
 contest_data = Contest()
 
@@ -215,6 +234,21 @@ def get_next_mtf():
     (content, response_code) = contest_data.get_next_mtf()
     return jsonify(content), response_code
 
+@app.route('/api/contest/sim')
+def get_next_sim_api():
+    (content, response_code) = contest_data.get_next_sim()
+
+    if response_code <= 200:
+        resp = {
+            'data': get_root_details(app_data, content),
+            'seq': content
+        }
+
+        return jsonify(resp), response_code
+
+    else:
+        return jsonify(content), response_code
+
 #   ___ ___   __          .__
 #  /   |   \_/  |_  _____ |  |
 # /    ~    \   __\/     \|  |
@@ -248,6 +282,10 @@ def contest_mcq_page():
 @app.route('/contest/mtf')
 def contest_mtf_page():
     return render_template('contest-mtf.html')
+
+@app.route('/contest/sim')
+def contest_sim_page():
+    return render_template('contest-sim.html')
 
 #    _____         .__
 #   /     \ _____  |__| ____
