@@ -1,0 +1,14 @@
+
+content: This directory has all the data that is required to serve.
+    arabic: The arabic content
+    metadata: The metadata of surah, ruku, aayah.
+    original: The exact content this is taken from source, unprocessed.
+    translation: The translations and meanings.
+
+src: Python code
+
+templates: html pages
+
+static: js files
+
+scripts: Python code to generated metadata
