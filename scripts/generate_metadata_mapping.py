@@ -187,6 +187,13 @@ ayah_root_sequence = parsed_content_info[0]
 ayah_root_sequence_file_name = "ayah_root_sequence.json"
 write_to_file(ayah_root_sequence_file_name, json.dumps(ayah_root_sequence, indent=4, ensure_ascii=False).encode('utf8'))
 
+
+# __________               __      _________ __          __
+# \______   \ ____   _____/  |_   /   _____//  |______ _/  |_  ______
+#  |       _//  _ \ /  _ \   __\  \_____  \\   __\__  \\   __\/  ___/
+#  |    |   (  <_> |  <_> )  |    /        \|  |  / __ \|  |  \___ \
+#  |____|_  /\____/ \____/|__|   /_______  /|__| (____  /__| /____  >
+#         \/                             \/           \/          \/
 root_statistics = parsed_content_info[1]
 root_statistics_file_name = "root_statistics.json"
 write_to_file(root_statistics_file_name, json.dumps(root_statistics, indent=4, ensure_ascii=False).encode('utf8'))
