@@ -1,8 +1,8 @@
 
 def get_ruku_content(app_data, ruku_number):
     result = app_data.get_surah_and_ruku_metadata(ruku_number)
-    surah_data = result["surah_data"];
-    ruku_data = result["ruku_data"];
+    surah_data = result["surah_data"]
+    ruku_data = result["ruku_data"]
 
     aayaah = list()
     roots = set()
@@ -38,13 +38,13 @@ def get_next_ruku_number(app_data, ruku_number):
 
 def get_previous_ruku_number(app_data, ruku_number):
     if ruku_number <= 1:
-        return 556;
+        return 556
 
     str_prev_number = str(ruku_number - 1)
     if str_prev_number in app_data.ruku_to_surah_mapping:
         return int(str_prev_number)
 
-    return 556;
+    return 556
 
 def get_ayah_details(app_data, ayah_number):
     ayah_details = {
@@ -57,16 +57,16 @@ def get_ayah_details(app_data, ayah_number):
         }
     }
 
-    ayah_details["translations"]["translation_yusuf_ali"] = app_data.translation_yusuf_ali.get_ayah_and_details(ayah_number);
-    ayah_details["translations"]["translation_shakir"] = app_data.translation_shakir.get_ayah_and_details(ayah_number);
-    ayah_details["translations"]["translation_maulana_maududi"] = app_data.translation_maulana_maududi.get_ayah_and_details(ayah_number);
-    ayah_details["translations"]["translation_maulana_jalandhry"] = app_data.translation_maulana_jalandhry.get_ayah_and_details(ayah_number);
+    ayah_details["translations"]["translation_yusuf_ali"] = app_data.translation_yusuf_ali.get_ayah_and_details(ayah_number)
+    ayah_details["translations"]["translation_shakir"] = app_data.translation_shakir.get_ayah_and_details(ayah_number)
+    ayah_details["translations"]["translation_maulana_maududi"] = app_data.translation_maulana_maududi.get_ayah_and_details(ayah_number)
+    ayah_details["translations"]["translation_maulana_jalandhry"] = app_data.translation_maulana_jalandhry.get_ayah_and_details(ayah_number)
 
     str_ayah_number = str(ayah_number)
     if str_ayah_number in app_data.verse_number_to_root_sequence_mapping:
         ayah_details["root_sequence"] = app_data.verse_number_to_root_sequence_mapping[str_ayah_number]
     else:
-        ayah_details["root_sequence"] = list();
+        ayah_details["root_sequence"] = list()
 
     return ayah_details
 

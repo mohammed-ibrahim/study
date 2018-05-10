@@ -1,6 +1,6 @@
 import collections
 import json
-from ml_util import get_number_in_arabic
+from src.utils import ml_util
 
 def load_kvp_from_file(file_name):
     data = collections.OrderedDict()
@@ -50,7 +50,7 @@ def get_ayah_number(ayah_number, language):
         return "(" + ayah_number + ")"
 
     if language == 'ar' or language == 'ur':
-        return "(" + get_number_in_arabic(ayah_number) + ")"
+        return "(" + ml_util.get_number_in_arabic(ayah_number) + ")"
 
     raise Exception('Language: ' + language + ' is not supported for numeric translation')
 
