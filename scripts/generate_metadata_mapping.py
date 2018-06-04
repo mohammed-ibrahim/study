@@ -215,16 +215,22 @@ write_to_file(ayah_root_sequence_file_name, json.dumps(ayah_root_sequence, inden
 #  |____|_  /\____/ \____/|__|     |____| \____/  \____|__  / ____|(____  /___|  / |___|___|  /\____ |\___  >__/\_ \ \____|__  (____  /   __/|   __/|__|___|  /\___  /    |____|  (____  /___  /____/\___  >
 #         \/                                              \/\/          \/     \/           \/      \/    \/      \/         \/     \/|__|   |__|           \//_____/                  \/    \/          \/
 
-create_table_text = """
+setup_sql_file_contents = ""
+sql_cmd_seperater = ";\n\n\n\n"
+
+create_table_text_root_ayah_index = """
 CREATE TABLE root_ayah_index(
     sequence int(11) not null,
     root varchar(50) not null,
     ayah_index varchar(50) not null,
-    root_hex varchar(100) default null
+    root_hex varchar(100) default null,
+    KEY idx_1528115496436 (root),
+    KEY idx_1528115520579 (root_hex),
+    KEY idx_1528115568636 (ayah_index)
 )
 """
 
-insert_prefix = """
+root_ayah_index_insert_prefix = """
 insert into root_ayah_index(sequence, root, ayah_index) values
 """
 
@@ -237,7 +243,7 @@ for i in range(len(root_ayah_index_mapping_table)):
     text = ("(%d, '%s', '%s')" % (i+1, root_ayah_index_mapping_table[i][0], root_ayah_index_mapping_table[i][1]))
     root_ayah_index_buffer.append(text)
 
-write_to_file(root_ayah_index_mapping_table_file_name, insert_prefix + ",\n".join(root_ayah_index_buffer) + ";")
+setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_ayah_index + sql_cmd_seperater + root_ayah_index_insert_prefix + ",\n".join(root_ayah_index_buffer) + sql_cmd_seperater
 
 
 # __________               __      _________ __          __
@@ -250,16 +256,18 @@ root_statistics = parsed_content_info[1]
 root_statistics_file_name = "root_statistics.json"
 write_to_file(root_statistics_file_name, json.dumps(root_statistics, indent=4, ensure_ascii=False).encode('utf8'))
 
-create_table_text = """
+create_table_text_root_statistics = """
 CREATE TABLE root_statistics(
     root varchar(50) not null,
     root_hex varchar(100) default null,
     cardinality int(11) not null,
-    distinct_appearance int(11) not null
+    distinct_appearance int(11) not null,
+    KEY idx_1528115550602 (root),
+    KEY idx_1528115555231 (root_hex)
 )
 """
 
-insert_prefix = """
+root_statistics_insert_prefix = """
 insert into root_statistics(root, cardinality, distinct_appearance) values
 """
 
@@ -270,7 +278,7 @@ for root in root_statistics:
     text = ("('%s', %d, %d)" % (root, root_statistics[root]['cardinality'], root_statistics[root]['appears_number_of_surah']))
     root_statistics_buffer.append(text)
 
-write_to_file(root_statistics_mapping_table_file_name, insert_prefix + ",\n".join(root_statistics_buffer) + ";")
+setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_statistics + sql_cmd_seperater + root_statistics_insert_prefix + ",\n".join(root_statistics_buffer) + sql_cmd_seperater
 
 ayah_number_ayah_index_mapping = parsed_content_info[2]
 
@@ -316,14 +324,15 @@ write_to_file(ruku_metadata_file_name, json.dumps(full_ruku_metadata, indent=4))
 content_details = parsed_content_info[4]
 ayah_to_juz_mapping = get_juz_mapping(content_details)
 
-create_table_text = """
+create_table_text_juz_ayah_index = """
 CREATE TABLE juz_ayah_index(
     ayah_index varchar(50) not null,
-    juz int(50) not null
+    juz int(50) not null,
+    KEY idx_1528115592466 (ayah_index)
 )
 """
 
-insert_prefix = """
+juz_ayah_index_insert_prefix = """
 insert into juz_ayah_index(ayah_index, juz) values
 """
 
@@ -334,4 +343,38 @@ for mapping in ayah_to_juz_mapping:
     text = ("('%s', %d)" % (mapping[0], mapping[1]))
     juz_ayah_index_buffer.append(text)
 
-write_to_file(juz_ayah_index_file_name, insert_prefix + ",\n".join(juz_ayah_index_buffer) + ";")
+
+setup_sql_file_contents = setup_sql_file_contents + create_table_text_juz_ayah_index + sql_cmd_seperater + juz_ayah_index_insert_prefix + ",\n".join(juz_ayah_index_buffer) + sql_cmd_seperater
+
+
+update_root_ayah_index_root_hex = """
+update root_ayah_index set root_hex = hex(root)
+"""
+
+update_root_statistics_root_hex = """
+update root_statistics set root_hex = hex(root)
+"""
+
+setup_sql_file_contents = setup_sql_file_contents + update_root_ayah_index_root_hex + sql_cmd_seperater + update_root_statistics_root_hex
+
+write_to_file("setup.sql", setup_sql_file_contents)
+
+"""
+select
+    juzAyahIndex.juz,
+    count(distinct rootAyahIndex.root_hex) distinct_roots
+from
+    juz_ayah_index juzAyahIndex
+
+    left join root_ayah_index rootAyahIndex
+        ON (juzAyahIndex.ayah_index = rootAyahIndex.ayah_index)
+
+    left join root_statistics rootStatistics
+        ON (rootStatistics.root_hex = rootAyahIndex.root_hex)
+
+where
+    rootStatistics.cardinality > 3 and rootStatistics.cardinality <= 8
+
+group by
+    juzAyahIndex.juz
+"""
