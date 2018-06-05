@@ -215,8 +215,6 @@ write_to_file(ayah_root_sequence_file_name, json.dumps(ayah_root_sequence, inden
 #  |____|_  /\____/ \____/|__|     |____| \____/  \____|__  / ____|(____  /___|  / |___|___|  /\____ |\___  >__/\_ \ \____|__  (____  /   __/|   __/|__|___|  /\___  /    |____|  (____  /___  /____/\___  >
 #         \/                                              \/\/          \/     \/           \/      \/    \/      \/         \/     \/|__|   |__|           \//_____/                  \/    \/          \/
 
-setup_sql_file_contents = ""
-sql_cmd_seperater = ";\n\n\n\n"
 
 create_table_text_root_ayah_index = """
 CREATE TABLE root_ayah_index(
@@ -243,7 +241,6 @@ for i in range(len(root_ayah_index_mapping_table)):
     text = ("(%d, '%s', '%s')" % (i+1, root_ayah_index_mapping_table[i][0], root_ayah_index_mapping_table[i][1]))
     root_ayah_index_buffer.append(text)
 
-setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_ayah_index + sql_cmd_seperater + root_ayah_index_insert_prefix + ",\n".join(root_ayah_index_buffer) + sql_cmd_seperater
 
 
 # __________               __      _________ __          __
@@ -278,7 +275,6 @@ for root in root_statistics:
     text = ("('%s', %d, %d)" % (root, root_statistics[root]['cardinality'], root_statistics[root]['appears_number_of_surah']))
     root_statistics_buffer.append(text)
 
-setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_statistics + sql_cmd_seperater + root_statistics_insert_prefix + ",\n".join(root_statistics_buffer) + sql_cmd_seperater
 
 ayah_number_ayah_index_mapping = parsed_content_info[2]
 
@@ -344,6 +340,22 @@ for mapping in ayah_to_juz_mapping:
     juz_ayah_index_buffer.append(text)
 
 
+
+
+#   _________      .__    _________                __                 __
+#  /   _____/ _____|  |   \_   ___ \  ____   _____/  |_  ____   _____/  |_  ______
+#  \_____  \ / ____/  |   /    \  \/ /  _ \ /    \   __\/ __ \ /    \   __\/  ___/
+#  /        < <_|  |  |__ \     \___(  <_> )   |  \  | \  ___/|   |  \  |  \___ \
+# /_______  /\__   |____/  \______  /\____/|___|  /__|  \___  >___|  /__| /____  >
+#         \/    |__|              \/            \/          \/     \/          \/
+
+setup_sql_file_contents = ""
+sql_cmd_seperater = ";\n\n\n\n"
+
+setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_ayah_index + sql_cmd_seperater + root_ayah_index_insert_prefix + ",\n".join(root_ayah_index_buffer) + sql_cmd_seperater
+
+setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_statistics + sql_cmd_seperater + root_statistics_insert_prefix + ",\n".join(root_statistics_buffer) + sql_cmd_seperater
+
 setup_sql_file_contents = setup_sql_file_contents + create_table_text_juz_ayah_index + sql_cmd_seperater + juz_ayah_index_insert_prefix + ",\n".join(juz_ayah_index_buffer) + sql_cmd_seperater
 
 
@@ -356,7 +368,6 @@ update root_statistics set root_hex = hex(root)
 """
 
 setup_sql_file_contents = setup_sql_file_contents + update_root_ayah_index_root_hex + sql_cmd_seperater + update_root_statistics_root_hex
-
 write_to_file("setup.sql", setup_sql_file_contents)
 
 """
