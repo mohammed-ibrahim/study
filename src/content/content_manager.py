@@ -75,16 +75,21 @@ def get_root_details(app_data, roots):
 
     for root in roots:
         english_meaning = "PENDING"
+        urdu_meaning = "PENDING"
 
-        if root in app_data.english_meaning:
-            english_meaning = app_data.english_meaning[root]
+        if root in app_data.root_meaning and 'eng' in app_data.root_meaning[root]:
+            english_meaning = app_data.root_meaning[root]['eng']
+
+        if root in app_data.root_meaning and 'urdu' in app_data.root_meaning[root]:
+            urdu_meaning = app_data.root_meaning[root]['urdu']
 
         response[root] = {
             "statistics": {
                 "num_of_occurrence": app_data.root_statistics[root]["cardinality"],
                 "appears_number_of_surah": app_data.root_statistics[root]["appears_number_of_surah"]
             },
-            "english-meaning": unicode(english_meaning, errors='ignore')
+            "english-meaning": unicode(english_meaning, errors='ignore'),
+            "urdu-meaning": unicode(urdu_meaning, errors='ignore')
         }
 
     return response

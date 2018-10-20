@@ -256,10 +256,16 @@ function renderRootDetails(ayahNumber) {
         var rootStatistics = pageStateRukuData["root_details"][root]["statistics"]["num_of_occurrence"] + ":"
             + pageStateRukuData["root_details"][root]["statistics"]["appears_number_of_surah"];
         var englishMeaning = pageStateRukuData["root_details"][root]["english-meaning"];
+        var urduMeaning = pageStateRukuData["root_details"][root]["urdu-meaning"];
+
+        var meaningToDisplay = englishMeaning;
+        if (urduMeaning != "PENDING") {
+            meaningToDisplay = urduMeaning;
+        }
 
         text = text + rootDataTemplate.replace("__root_word__", getArabicRepresentation(root))
             .replace("__root_stats__", rootStatistics)
-            .replace("__root_meaning__", englishMeaning);
+            .replace("__root_meaning__", meaningToDisplay);
     }
 
     document.getElementById("roots_table").innerHTML = text;

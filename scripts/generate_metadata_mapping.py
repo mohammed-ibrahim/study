@@ -195,6 +195,16 @@ def get_juz_mapping(content_details):
 
     return result
 
+setup_sql_file_contents = ""
+sql_cmd_seperater = ";\n\n\n\n"
+
+def add_sql(sql):
+    global setup_sql_file_contents
+    setup_sql_file_contents = setup_sql_file_contents + sql + sql_cmd_seperater
+
+def get_sql():
+    return setup_sql_file_contents
+
 # __________                                .___ _________                __                 __
 # \______   \_____ _______  ______ ____   __| _/ \_   ___ \  ____   _____/  |_  ____   _____/  |_
 #  |     ___/\__  \\_  __ \/  ___// __ \ / __ |  /    \  \/ /  _ \ /    \   __\/ __ \ /    \   __\
@@ -259,6 +269,7 @@ CREATE TABLE root_statistics(
     root_hex varchar(100) default null,
     cardinality int(11) not null,
     distinct_appearance int(11) not null,
+    possible_ref varchar(50) default null,
     KEY idx_1528115550602 (root),
     KEY idx_1528115555231 (root_hex)
 )
@@ -323,23 +334,23 @@ ayah_to_juz_mapping = get_juz_mapping(content_details)
 create_table_text_juz_ayah_index = """
 CREATE TABLE juz_ayah_index(
     ayah_index varchar(50) not null,
-    juz int(50) not null,
-    KEY idx_1528115592466 (ayah_index)
+    juz int(11) not null,
+    sequence int(11) not null,
+    KEY idx_1528115592466 (ayah_index),
+    KEY idx_1528197755071 (sequence)
 )
 """
 
 juz_ayah_index_insert_prefix = """
-insert into juz_ayah_index(ayah_index, juz) values
+insert into juz_ayah_index(ayah_index, juz, sequence) values
 """
 
 juz_ayah_index_file_name = "juz_ayah_index.sql"
 juz_ayah_index_buffer = []
 
-for mapping in ayah_to_juz_mapping:
-    text = ("('%s', %d)" % (mapping[0], mapping[1]))
+for index in range(len(ayah_to_juz_mapping)):
+    text = ("('%s', %d, %d)" % (ayah_to_juz_mapping[index][0], ayah_to_juz_mapping[index][1], (index+1)))
     juz_ayah_index_buffer.append(text)
-
-
 
 
 #   _________      .__    _________                __                 __
@@ -349,26 +360,50 @@ for mapping in ayah_to_juz_mapping:
 # /_______  /\__   |____/  \______  /\____/|___|  /__|  \___  >___|  /__| /____  >
 #         \/    |__|              \/            \/          \/     \/          \/
 
-setup_sql_file_contents = ""
-sql_cmd_seperater = ";\n\n\n\n"
+add_sql("drop database IF EXISTS rad")
+add_sql("create database rad")
+add_sql("use rad ")
 
-setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_ayah_index + sql_cmd_seperater + root_ayah_index_insert_prefix + ",\n".join(root_ayah_index_buffer) + sql_cmd_seperater
+add_sql(create_table_text_root_ayah_index)
+add_sql(root_ayah_index_insert_prefix + ",\n".join(root_ayah_index_buffer))
 
-setup_sql_file_contents = setup_sql_file_contents + create_table_text_root_statistics + sql_cmd_seperater + root_statistics_insert_prefix + ",\n".join(root_statistics_buffer) + sql_cmd_seperater
+add_sql(create_table_text_root_statistics)
+add_sql(root_statistics_insert_prefix + ",\n".join(root_statistics_buffer))
 
-setup_sql_file_contents = setup_sql_file_contents + create_table_text_juz_ayah_index + sql_cmd_seperater + juz_ayah_index_insert_prefix + ",\n".join(juz_ayah_index_buffer) + sql_cmd_seperater
+add_sql(create_table_text_juz_ayah_index)
+add_sql(juz_ayah_index_insert_prefix + ",\n".join(juz_ayah_index_buffer))
 
+add_sql("update root_ayah_index set root_hex = hex(root)")
+add_sql("update root_statistics set root_hex = hex(root)")
 
-update_root_ayah_index_root_hex = """
-update root_ayah_index set root_hex = hex(root)
+# add_sql(
+"""
+    UPDATE
+
+        root_statistics rootStatistics
+
+    SET rootStatistics.possible_ref = (
+
+        select
+            juzAyahIndex.ayah_index
+        from
+            juz_ayah_index juzAyahIndex
+
+            left join root_ayah_index rootAyahIndex
+                ON (juzAyahIndex.ayah_index = rootAyahIndex.ayah_index)
+
+        WHERE
+            rootAyahIndex.root_hex = rootStatistics.root_hex
+
+        ORDER BY
+            juzAyahIndex.juz desc,
+            juzAyahIndex.sequence asc
+
+        LIMIT 1
+    )
 """
 
-update_root_statistics_root_hex = """
-update root_statistics set root_hex = hex(root)
-"""
-
-setup_sql_file_contents = setup_sql_file_contents + update_root_ayah_index_root_hex + sql_cmd_seperater + update_root_statistics_root_hex
-write_to_file("setup.sql", setup_sql_file_contents)
+write_to_file("setup.sql", get_sql())
 
 """
 select
@@ -388,4 +423,38 @@ where
 
 group by
     juzAyahIndex.juz
+"""
+
+"""
+select
+    juzAyahIndex.ayah_index
+from
+    juz_ayah_index juzAyahIndex
+
+    left join root_ayah_index rootAyahIndex
+        ON (juzAyahIndex.ayah_index = rootAyahIndex.ayah_index)
+
+ORDER BY
+    juzAyahIndex.juz desc,
+    juzAyahIndex.sequence asc
+
+LIMIT 1
+"""
+
+"""
+select
+    juzAyahIndex.juz,
+    count(distinct rootAyahIndex.root_hex) distinct_roots
+from
+    juz_ayah_index juzAyahIndex
+
+    left join root_ayah_index rootAyahIndex
+        ON (juzAyahIndex.ayah_index = rootAyahIndex.ayah_index)
+
+    left join root_statistics rootStatistics
+        ON (rootStatistics.root_hex = rootAyahIndex.root_hex)
+
+where
+    rootStatistics.cardinality > 3 and rootStatistics.cardinality <= 8
+    AND juzAyahIndex.juz > 26
 """
