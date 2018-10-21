@@ -7,12 +7,15 @@ def load_root_meaning(file_name):
     root_meaning = {}
     n_urdu = 0
     n_eng = 0
+    n_rows = 0
 
     with open(file_name, 'rb') as file_pointer:
         reader = csv.reader(file_pointer)
         headers = None
 
         for row in reader:
+            n_rows += 1
+
             if headers is None:
                 headers = row
             else:
@@ -20,20 +23,20 @@ def load_root_meaning(file_name):
                 urdu_meaning = row[7].strip()
                 eng_meaning = row[8].strip()
 
-                if len(urdu_meaning) > 0 and len(eng_meaning) > 0:
+                if len(urdu_meaning) > 0 or len(eng_meaning) > 0:
                     root_meaning[bw_root] = {}
 
                     if len(urdu_meaning) > 0:
                         root_meaning[bw_root]['urdu'] = urdu_meaning
-                        print("urdu: %s" % urdu_meaning)
+                        # print("urdu: %s" % urdu_meaning)
                         n_urdu += 1
 
                     if len(eng_meaning) > 0:
                         root_meaning[bw_root]['eng'] = eng_meaning
-                        print("eng: %s" % eng_meaning)
+                        # print("eng: %s" % eng_meaning)
                         n_eng += 1
 
-    print("Total urdu: %d, Totan eng: %d" % (n_urdu, n_eng))
+    print("Total rows: %s, Total urdu: %d, Totan eng: %d" % (n_rows, n_urdu, n_eng))
     return root_meaning
 
 def load_kvp_from_file(file_name):

@@ -258,10 +258,10 @@ function renderRootDetails(ayahNumber) {
         var englishMeaning = pageStateRukuData["root_details"][root]["english-meaning"];
         var urduMeaning = pageStateRukuData["root_details"][root]["urdu-meaning"];
 
-        var meaningToDisplay = englishMeaning;
-        if (urduMeaning != "PENDING") {
-            meaningToDisplay = urduMeaning;
-        }
+        var meaningToDisplay = urduMeaning + "<br/>----<br/>" + englishMeaning;
+        // if (urduMeaning != "PENDING") {
+        //     meaningToDisplay = urduMeaning;
+        // }
 
         text = text + rootDataTemplate.replace("__root_word__", getArabicRepresentation(root))
             .replace("__root_stats__", rootStatistics)
