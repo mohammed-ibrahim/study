@@ -65,10 +65,41 @@ def get_ayah_details(app_data, ayah_number):
     str_ayah_number = str(ayah_number)
     if str_ayah_number in app_data.verse_number_to_root_sequence_mapping:
         ayah_details["root_sequence"] = app_data.verse_number_to_root_sequence_mapping[str_ayah_number]
+        ayah_details["detailed_root_sequence"] = build_detailed_root_sequence(app_data, app_data.verse_number_to_root_sequence_mapping[str_ayah_number])
     else:
         ayah_details["root_sequence"] = list()
 
     return ayah_details
+
+def build_detailed_root_sequence(app_data, root_sequence):
+    content = []
+
+    for root in root_sequence:
+        content.append(get_root_details_by_root(root, app_data))
+
+    return content
+
+def get_root_details_by_root(root, app_data):
+    english_meaning = "PENDING"
+    urdu_meaning = "PENDING"
+
+    if root in app_data.root_meaning and 'eng' in app_data.root_meaning[root]:
+        english_meaning = app_data.root_meaning[root]['eng']
+
+    if root in app_data.root_meaning and 'urdu' in app_data.root_meaning[root]:
+        urdu_meaning = app_data.root_meaning[root]['urdu']
+
+    response = {
+        "bw_root": root,
+        "statistics": {
+            "num_of_occurrence": app_data.root_statistics[root]["cardinality"],
+            "appears_number_of_surah": app_data.root_statistics[root]["appears_number_of_surah"]
+        },
+        "english-meaning": unicode(english_meaning, errors='ignore'),
+        "urdu-meaning": unicode(urdu_meaning, errors='ignore')
+    }
+
+    return response
 
 def get_root_details(app_data, roots):
     response = {}

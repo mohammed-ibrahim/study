@@ -67,10 +67,12 @@ if __name__ == "__main__":
     reader_util.load_json_from_file("content/metadata/root_statistics.json")
 
     for i in range(1, 557):
+        content = content_manager.get_ruku_content(app_data, i)
         log.info("Generating data for Ruku Number: %d", i)
         # ruku_number = str(i)
-        content = content_manager.get_ruku_content(app_data, i)
 
     # next item changes in : content_manager.py
     # @ ayah_details["root_sequence"] = app_data.verse_number_to_root_sequence_mapping[str_ayah_number]
     # add root_sequence_with_details
+
+    # last stopped @ content_manager.py @ 78
