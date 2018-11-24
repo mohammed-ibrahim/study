@@ -2,7 +2,9 @@ from src.content import content_manager
 
 from src.content.app_data import AppData
 from src.utils import reader_util
-
+import os
+import json
+import base64
 
 import logging
 log = logging.getLogger(__name__)
@@ -10,6 +12,7 @@ log = logging.getLogger(__name__)
 
 app_data = AppData()
 
+FILES_DIRECTORY = "html"
 
 # Project info
 # Meta info
@@ -50,6 +53,12 @@ app_data = AppData()
 # 3. perform renaming and moving operations mentioned in section c
 # 4. ready.
 
+def write_to_file(file_name, content):
+    with open(file_name, "w") as file_pointer:
+        file_pointer.write(content)
+
+    log.info("File write complete: %s", file_name)
+
 def setup_defaults():
     log_formatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s")
     root_logger = logging.getLogger()
@@ -59,8 +68,17 @@ def setup_defaults():
     console_handler.setFormatter(log_formatter)
     root_logger.addHandler(console_handler)
 
+def safe_mkdir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
 if __name__ == "__main__":
     setup_defaults()
+
+    content_directory = os.path.join("./", FILES_DIRECTORY)
+    safe_mkdir(content_directory)
+    log.info("Files will be written to the directory: %s", content_directory)
+
     surah_metadata = reader_util.load_json_from_file("content/metadata/surah_metadata.json")
     ruku_to_surah_mapping = reader_util.load_json_from_file("content/metadata/ruku_to_surah_mapping.json")
     verse_number_to_root_sequence_mapping = reader_util.load_json_from_file("content/metadata/verse_number_to_root_sequence_mapping.json")
@@ -68,6 +86,10 @@ if __name__ == "__main__":
 
     for i in range(1, 557):
         content = content_manager.get_ruku_content(app_data, i)
+        file_name = os.path.join(content_directory, "ruku-details-%d.js" % i)
+        log.info("Writing to file: %s", file_name)
+        content_to_write = "var rukuContent = '%s';" % base64.standard_b64encode(json.dumps(content))
+        write_to_file(file_name, content_to_write)
         log.info("Generating data for Ruku Number: %d", i)
         # ruku_number = str(i)
 
