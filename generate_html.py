@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 
 app_data = AppData()
 
-FILES_DIRECTORY = "html"
+FILES_DIRECTORY = "html/sv"
 
 # Project info
 # Meta info
