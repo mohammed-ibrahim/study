@@ -5,6 +5,7 @@ from src.utils import reader_util
 import os
 import json
 import base64
+import sys
 
 import logging
 log = logging.getLogger(__name__)
@@ -80,6 +81,7 @@ if __name__ == "__main__":
     log.info("Files will be written to the directory: %s", content_directory)
 
     surah_metadata = reader_util.load_json_from_file("content/metadata/surah_metadata.json")
+    write_to_file("metadata.js", "var metadata = JSON.parse(atob('%s'));" % base64.standard_b64encode(json.dumps(surah_metadata)))
     ruku_to_surah_mapping = reader_util.load_json_from_file("content/metadata/ruku_to_surah_mapping.json")
     verse_number_to_root_sequence_mapping = reader_util.load_json_from_file("content/metadata/verse_number_to_root_sequence_mapping.json")
     reader_util.load_json_from_file("content/metadata/root_statistics.json")
