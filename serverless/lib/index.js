@@ -15,19 +15,64 @@ function loadScript(rnum) {
 
 window.onload = function() {
 
-    render();
+    setSurahSelectBox();
+    dyload(1);
+
+}
+
+function dyload(surahNumber) {
+    console.log("Loading surahNumber: " + surahNumber);
+    var rukuNumber = metadata[surahNumber]["ruku"][0]["ruku_index"];
+    setRukuSelectBox(surahNumber);
+    dyloadRukuNumber(rukuNumber);
+}
+
+function dyloadRukuNumber(rukuNumber) {
+    var script = document.createElement('script');
+    script.src = "content/r-" + rukuNumber.toString() + ".js";
+    document.head.appendChild(script);
+
+    script.onload = function() {
+        render();
+    }
 }
 
 function render() {
-    setSurahSelectBox();
 
     var firstAyahNumber = rukuContent["aayaah"][0]["ayah_number"];
+    setAyahSelectBox();
     renderArabicContent(firstAyahNumber);
     renderTranslation(firstAyahNumber);
     renderRootDetails(firstAyahNumber);
+    markSelectedAyah(firstAyahNumber);
 }
 
+function selectAyah(ayahNumber) {
+    renderArabicContent(ayahNumber);
+    renderTranslation(ayahNumber);
+    renderRootDetails(ayahNumber);
+    markSelectedAyah(ayahNumber);
+    document.getElementById("ayah_selection").value = ayahNumber;
+}
 
+var currentAyahSelection = null;
+
+function markSelectedAyah(ayahNumber) {
+    var selectedFontColor = "LightSeaGreen";
+    var defaultFontColor = "Black";
+
+    if (!currentAyahSelection) {
+        document.getElementById(ayahNumber).style.color = selectedFontColor;
+        currentAyahSelection = ayahNumber;
+    } else {
+
+        if (document.getElementById(currentAyahSelection)) {
+            document.getElementById(currentAyahSelection).style.color = defaultFontColor;
+        }
+        document.getElementById(ayahNumber).style.color = selectedFontColor;
+        currentAyahSelection = ayahNumber;
+    }
+}
 
 var selectTemplate = `
         <option value="__option_value_place_holder__">__option_text_place_holder__</option>
@@ -49,9 +94,34 @@ function setSurahSelectBox() {
 }
 
 
+function setRukuSelectBox(currentSurahNumber) {
+    var text = "";
 
+    for (var index in metadata[currentSurahNumber]["ruku"]) {
+        var rukuDetails = metadata[currentSurahNumber]["ruku"][index];
+        var rukuNumberInSurah = parseInt(index) + 1;
+        var rukuIndex = rukuDetails["ruku_index"];
+        text = text + selectTemplate.replace("__option_value_place_holder__", rukuIndex)
+                .replace("__option_text_place_holder__", getNumberInArabic(rukuNumberInSurah));
+    }
 
+    document.getElementById("ruku_selection").innerHTML = text;
+    document.getElementById("ruku_selection").value = metadata[currentSurahNumber]["ruku"][0]["ruku_index"];
+}
 
+function setAyahSelectBox() {
+    var text = "";
+
+    for (var index in rukuContent["ayah_number_sequence"]) {
+        var value = rukuContent["ayah_number_sequence"][index];
+        var ayahNumberInArabic = getNumberInArabic(value.split(":")[1]);
+        text = text + selectTemplate.replace("__option_value_place_holder__", value)
+            .replace("__option_text_place_holder__", ayahNumberInArabic);
+    }
+
+    document.getElementById("ayah_selection").innerHTML = text;
+    document.getElementById("ayah_selection").value = rukuContent["ayah_number_sequence"][0];
+}
 
 
 var arabicContentDivTemplate = `
