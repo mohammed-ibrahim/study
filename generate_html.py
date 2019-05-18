@@ -6,6 +6,7 @@ import os
 import json
 import base64
 import sys
+import shutil
 
 import logging
 log = logging.getLogger(__name__)
@@ -13,7 +14,7 @@ log = logging.getLogger(__name__)
 
 app_data = AppData()
 
-FILES_DIRECTORY = "serverless"
+SERVERLESS_DIRECTORY = "serverless"
 
 # Project info
 # Meta info
@@ -73,10 +74,15 @@ def safe_mkdir(directory):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+def copy_and_overwrite(from_path, to_path):
+    if os.path.exists(to_path):
+        shutil.rmtree(to_path)
+    shutil.copytree(from_path, to_path)
+
 if __name__ == "__main__":
     setup_defaults()
 
-    content_directory = os.path.join("./", FILES_DIRECTORY)
+    content_directory = os.path.join("./", SERVERLESS_DIRECTORY)
     #content_directory = "../sv/"
 
     safe_mkdir(content_directory)
@@ -107,3 +113,6 @@ if __name__ == "__main__":
     # add root_sequence_with_details
 
     # last stopped @ content_manager.py @ 78
+
+    if len(sys.argv) > 1:
+        copy_and_overwrite(content_directory, sys.argv[1])
