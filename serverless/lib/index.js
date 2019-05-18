@@ -16,7 +16,20 @@ function loadScript(rnum) {
 window.onload = function() {
 
     setSurahSelectBox();
-    dyload(1);
+
+    var prevSurahNumber = localStorage.getItem("prevSurahNumber");
+    var prevRukuNumber = localStorage.getItem("prevRukuNumber");
+    console.log("Values of previous session: " + prevSurahNumber + ":" + prevRukuNumber);
+
+    if (prevSurahNumber && prevRukuNumber) {
+        setRukuSelectBox(prevSurahNumber);
+        document.getElementById("surah_selection").value = prevSurahNumber;
+        dyloadRukuNumber(prevRukuNumber);
+        document.getElementById("ruku_selection").value = prevRukuNumber;
+        console.log("Loading previous: " + prevSurahNumber + ":" + prevRukuNumber);
+    } else {
+        dyload(1)
+    }
 
 }
 
@@ -24,6 +37,7 @@ function dyload(surahNumber) {
     console.log("Loading surahNumber: " + surahNumber);
     var rukuNumber = metadata[surahNumber]["ruku"][0]["ruku_index"];
     setRukuSelectBox(surahNumber);
+    localStorage.setItem("prevSurahNumber", surahNumber);
     dyloadRukuNumber(rukuNumber);
 }
 
@@ -34,6 +48,7 @@ function dyloadRukuNumber(rukuNumber) {
 
     script.onload = function() {
         render();
+        localStorage.setItem("prevRukuNumber", rukuNumber);
     }
 }
 
