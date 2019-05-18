@@ -1,3 +1,5 @@
 
 
 ## Steps
+#1 Download the root meaning file and save it to content/translations/root-meaning-v2.csv.
+#2 python deploy_serverless.py <deployment_directory>
