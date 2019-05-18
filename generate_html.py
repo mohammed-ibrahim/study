@@ -76,22 +76,25 @@ def safe_mkdir(directory):
 if __name__ == "__main__":
     setup_defaults()
 
-    content_directory = os.path.join("./", FILES_DIRECTORY)
+    # content_directory = os.path.join("./", FILES_DIRECTORY)
+    content_directory = "../sv/"
+
     safe_mkdir(content_directory)
     log.info("Files will be written to the directory: %s", content_directory)
 
     surah_metadata = reader_util.load_json_from_file("content/metadata/surah_metadata.json")
-    write_to_file("metadata.js", "var metadata = JSON.parse(atob('%s'));" % base64.standard_b64encode(json.dumps(surah_metadata)))
+    write_to_file(os.path.join(content_directory, "lib", "metadata.js"), "var metadata = JSON.parse(atob('%s'));" % base64.standard_b64encode(json.dumps(surah_metadata)))
 
     ruku_to_surah_mapping = reader_util.load_json_from_file("content/metadata/ruku_to_surah_mapping.json")
     verse_number_to_root_sequence_mapping = reader_util.load_json_from_file("content/metadata/verse_number_to_root_sequence_mapping.json")
     reader_util.load_json_from_file("content/metadata/root_statistics.json")
 
     for i in range(1, 557):
+    #for i in range(10, 11):
         content = content_manager.get_ruku_content(app_data, i)
-        file_name = os.path.join(content_directory, "ruku-details-%d.js" % i)
+        file_name = os.path.join(os.path.join(content_directory, "content"), "r-%d.js" % i)
         log.info("Writing to file: %s", file_name)
-        content_to_write = "var rukuContent = '%s';" % base64.standard_b64encode(json.dumps(content))
+        content_to_write = "var rukuContent = JSON.parse(atob('%s'));" % base64.standard_b64encode(json.dumps(content))
         write_to_file(file_name, content_to_write)
         log.info("Generating data for Ruku Number: %d", i)
         # ruku_number = str(i)
