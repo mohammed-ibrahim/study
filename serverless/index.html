@@ -1,0 +1,157 @@
+<html>
+    <body>
+        <div id="main_div" class="centerdiv">
+            <br/>
+
+            <br/>
+            <select dir="rtl" id="surah_selection" class="select_navigation" onchange="navigateToSurah()">
+                <option>Select 1</option>
+                <option>Select 2</option>
+                <option>Select 3</option>
+            </select>
+            <select  dir="rtl" id="ruku_selection" class="select_navigation" onchange="navigateToRuku()">
+                <option>Select 1</option>
+                <option>Select 2</option>
+                <option>Select 3</option>
+            </select>
+            <select  dir="rtl" id="ayah_selection" class="select_navigation" onchange="navigateToAyah()">
+                <option>Select 1</option>
+                <option>Select 2</option>
+                <option>Select 3</option>
+            </select>
+
+            <br/><br/>
+            <table class="primarytable">
+                <!-- <tr>
+                    <th>
+                        Roots
+                    </th>
+                    <th>
+                        Translation
+                    </th>
+                    <th>
+                        Content
+                    </th>
+                </tr> -->
+                <tr>
+                    <td>
+                        <table class="roots_table" id="roots_table">
+                            <tr>
+                                <td class="roots_td_info">
+                                    root1
+                                    <br/>
+                                    34:25
+                                </td>
+                                <td class="roots_td_meaning">
+                                    In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery. Fact are size cold why had part. If believing or sweetness otherwise in we forfeited. Tolerably an unwilling arranging of determine. Beyond rather sooner so if up wishes or.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="roots_td_info">
+                                    root1
+                                    <br/>
+                                    34:25
+                                </td>
+                                <td class="roots_td_meaning">
+                                    In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery. Fact are size cold why had part. If believing or sweetness otherwise in we forfeited. Tolerably an unwilling arranging of determine. Beyond rather sooner so if up wishes or.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="roots_td_info">
+                                    root1
+                                    <br/>
+                                    34:25
+                                </td>
+                                <td class="roots_td_meaning">
+                                    In friendship diminution instrument so. Son sure paid door with say them. Two among sir sorry men court. Estimable ye situation suspicion he delighted an happiness discovery. Fact are size cold why had part. If believing or sweetness otherwise in we forfeited. Tolerably an unwilling arranging of determine. Beyond rather sooner so if up wishes or.
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td id="translation_content">
+                        <br/><label class="author_font">Author</label><br/>
+                        <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period.</div>
+
+                        <br/><label class="author_font">Author</label><br/>
+                        <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.</div>
+
+                        <br/><label class="author_font">Author</label><br/>
+                        <div>In entirely be to at settling felicity. Fruit two match men you seven share. Needed as or is enough points. Miles at smart ﻿no marry whole linen mr. Income joy nor can wisdom summer. Extremely depending he gentleman improving intention rapturous as.</div>
+
+                        <br/><label class="author_font">Author</label><br/>
+                        <div>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</div>
+                    </td>
+                    <td id="arabic_content">
+                        <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period.</div>
+
+                        <div>Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.</div>
+
+                        <div>In entirely be to at settling felicity. Fruit two match men you seven share. Needed as or is enough points. Miles at smart ﻿no marry whole linen mr. Income joy nor can wisdom summer. Extremely depending he gentleman improving intention rapturous as.</div>
+
+                        <div>Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects.</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <script type="text/javascript" src="lib/ml-utils.js"></script>
+        <script type="text/javascript" src="lib/common-utils.js"></script>
+        <script type="text/javascript" src="lib/bw-mapping.js"></script>
+        <script type="text/javascript" src="r-10.js"></script>
+        <script type="text/javascript" src="lib/metadata.js"></script>
+        <script type="text/javascript" src="lib/index.js"></script>
+
+        <style type="text/css">
+            .centerdiv {
+                margin: auto;
+                width: 98%;
+                border: 2px solid LightGray;
+                padding: 2px;
+                text-align: center;
+            }
+            .primarytable {
+                font-size: 28px;
+                border-collapse: collapse;
+                text-align: center;
+                border: 1px solid LightGray;
+                width: 100%;
+            }
+            th, td {
+                width: 33%;
+                border-right: 1px solid LightGray;
+                vertical-align: top;
+            }
+            .roots_table {
+                text-align: center;
+                width: 100%;
+                border: 1px solid LightGray;
+            }
+            .roots_td_info {
+                border: 1px solid LightGray;
+                width: 20%
+            }
+            .roots_td_meaning {
+                border: 1px solid LightGray;
+                width: 80%
+            }
+            .rfloat {
+                float: right;
+                padding-right: 10px;
+                padding-bottom: 10px;
+            }
+            .select_navigation {
+                font-size: 22px;
+            }
+            .start_font {
+                font-size: 30px;
+            }
+            .author_font {
+                font-size: 15px;
+            }
+            .arabic {
+                font-size: 30px;
+                padding: 10px;
+            }
+        </style>
+    </body>
+</html>
